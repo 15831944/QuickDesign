@@ -121,14 +121,14 @@ class HeaterBuilder
         heater_line.length = line.GetLength();
         heater_line.start_point = line.StartPoint;
         heater_line.end_point = line.EndPoint;
-        heater_line.orderPoint = line.StartPoint;//todo
+        heater_line.orderPoint = new Point3d(0,0,0);        
 
         heater_line.curves.Add(aline);
         Vector3d dir = new Vector3d(heater_line.start_point.X - heater_line.end_point.X,
                     heater_line.start_point.Y - heater_line.end_point.Y, 0);
         heater_line.dir = dir;
 
-        //1——从end_point找
+        #region 1——从end_point找
         bool is_finish = false;
         while (is_finish == false)
         {
@@ -137,86 +137,101 @@ class HeaterBuilder
             {
                 if (segments[i].added == true) continue;
 
-                if (!NXFunction.IsCoinCide(heater_segments[i].p1, heater_line.end_point) &&
-                   !NXFunction.IsCoinCide(heater_segments[i].p2, heater_line.end_point))
+                if (!NXFunction.IsCoinCide(segments[i].p1, heater_line.end_point) &&
+                   !NXFunction.IsCoinCide(segments[i].p2, heater_line.end_point))
                     continue;
 
                 is_finish = false;
-                heater_segments[i].added = true;
+                segments[i].added = true;
 
-                heater_line.curves.push_back(heater_segments[i].curve);
-                heater_line.length += heater_segments[i].curve.GetLength;
+                heater_line.curves.Add(segments[i].curve);
+                heater_line.length += segments[i].curve.GetLength();
 
-                //端点传递和方向
-                if (NXFunction.IsCoinCide(heater_segments[i].p1, heater_line.end_point))
+                heater_line.orderPoint.X += segments[i].p1.X;
+                heater_line.orderPoint.X += segments[i].p2.X;
+                heater_line.orderPoint.Y += segments[i].p1.Y;
+                heater_line.orderPoint.Y += segments[i].p2.Y;
+
+                #region 端点传递和方向
+                if (NXFunction.IsCoinCide(segments[i].p1, heater_line.end_point))
                 {
-                    heater_line.end_point = heater_segments[i].p2;
-                    heater_line.other_point = heater_segments[i].p1;
+                    heater_line.end_point = segments[i].p2;
+                    heater_line.other_point = segments[i].p1;
                     heater_line.other = 1;
 
-                    Vector3d dir1(heater_segments[i].p1.X - heater_segments[i].p2.X,
-                                 heater_segments[i].p1.Y - heater_segments[i].p2.Y, 0);
+                    Vector3d dir1 = new Vector3d(segments[i].p1.X - segments[i].p2.X,
+                                 segments[i].p1.Y - segments[i].p2.Y, 0);
                     heater_line.dir = dir1;
                 }
-			        else
-			        {
-                    heater_line.end_point = heater_segments[i].p1;
-                    heater_line.other_point = heater_segments[i].p2;
+			    else
+			    {
+                    heater_line.end_point = segments[i].p1;
+                    heater_line.other_point = segments[i].p2;
                     heater_line.other = 1;
 
-                    Vector3d dir1(heater_segments[i].p2.X - heater_segments[i].p1.X,
-                                 heater_segments[i].p2.Y - heater_segments[i].p1.Y, 0);
+                    Vector3d dir1 = new Vector3d(segments[i].p2.X - segments[i].p1.X,
+                                    segments[i].p2.Y - segments[i].p1.Y, 0);
                     heater_line.dir = dir1;
-                    }
                 }
+                #endregion
             }
+        }
+        #endregion
 
-//2——从start_point找
-is_finish = false;		
-	while(is_finish==false)
-	{
-		is_finish = true;
-		for(int i = 0; i<heater_segments.size;i++)
-		{
-			if(heater_segments[i].added == true) continue;
+        #region 2——从start_point找
+        is_finish = false;		
+	    while(is_finish==false)
+	    {
+		    is_finish = true;
+		    for(int i = 0; i< segments.Count;i++)
+		    {
+			    if(segments[i].added == true) continue;
 
-			if(!NXFunction.IsCoinCide(heater_segments[i].p1,heater_line.start_point)&&
-			   !NXFunction.IsCoinCide(heater_segments[i].p2,heater_line.start_point) )
-			   continue;
+			    if(!NXFunction.IsCoinCide(segments[i].p1,heater_line.start_point)&&
+			       !NXFunction.IsCoinCide(segments[i].p2,heater_line.start_point) )
+			       continue;
 
-			is_finish = false;
-			heater_segments[i].added = true;
+			    is_finish = false;
+                segments[i].added = true;
 
-			heater_line.curves.push_back(heater_segments[i].curve);
-			heater_line.length+=heater_segments[i].curve.GetLength;
+			    heater_line.curves.Add(segments[i].curve);
+			    heater_line.length+= segments[i].curve.GetLength();
 
-			//端点传递和方向
-			if(NXFunction.IsCoinCide(heater_segments[i].p1,heater_line.start_point))
-			{
-				heater_line.start_point = heater_segments[i].p2;
-				heater_line.other_point = heater_segments[i].p1;
-				heater_line.other = 2;
+                heater_line.orderPoint.X += segments[i].p1.X;
+                heater_line.orderPoint.X += segments[i].p2.X;
+                heater_line.orderPoint.Y += segments[i].p1.Y;
+                heater_line.orderPoint.Y += segments[i].p2.Y;
 
-				Vector3d dir1(heater_segments[i].p1.X - heater_segments[i].p2.X,
-                             heater_segments[i].p1.Y - heater_segments[i].p2.Y,0);
-heater_line.dir = dir1;
-			}
-			else
-			{
-				heater_line.start_point = heater_segments[i].p1;
-				heater_line.other_point = heater_segments[i].p2;
-				heater_line.other = 2;
+                #region 端点传递和方向
+                if (NXFunction.IsCoinCide(segments[i].p1,heater_line.start_point))
+			    {
+				    heater_line.start_point = segments[i].p2;
+				    heater_line.other_point = segments[i].p1;
+				    heater_line.other = 2;
 
-				Vector3d dir1(heater_segments[i].p2.X - heater_segments[i].p1.X,
-                             heater_segments[i].p2.Y - heater_segments[i].p1.Y,0);
-heater_line.dir = dir1;
-			}
-		}
-	}
+				    Vector3d dir1 = new Vector3d(segments[i].p1.X - segments[i].p2.X,
+                                 segments[i].p1.Y - segments[i].p2.Y,0);
+                    heater_line.dir = dir1;
+			    }
+			    else
+			    {
+				    heater_line.start_point = segments[i].p1;
+				    heater_line.other_point = segments[i].p2;
+				    heater_line.other = 2;
 
-	heater_line.length = int((heater_line.length+0.005)100)/100.0;//保留两位小数
-	return heater_line;
-}
+				    Vector3d dir1 = new Vector3d(segments[i].p2.X - segments[i].p1.X,
+                                 segments[i].p2.Y - segments[i].p1.Y,0);
+                    heater_line.dir = dir1;
+			    }
+                #endregion
+            }
+	    }
+        #endregion
+
+        heater_line.length = Math.Round(heater_line.length, 2);//保留两位小数
+        
+	    return heater_line;
+    }
 }
 
 class HeaterSegment
