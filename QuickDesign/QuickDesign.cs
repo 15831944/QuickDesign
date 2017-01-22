@@ -151,12 +151,14 @@ public class QuickDesign
         int errorCode = 0;
         try
         {
-            theUI.NXMessageBox.Show("Block Styler", NXMessageBox.DialogType.Error, "fds");
             ManifoldInfo manifold = GetUserInput();
 
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
             builder.Commit();
-            
+
+            HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
+            heaterBuilder.Commit();
+
             //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
             //runnerInsertBuilder.Commit();
 
