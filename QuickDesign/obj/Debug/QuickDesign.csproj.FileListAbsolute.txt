@@ -1,0 +1,12 @@
+D:\CODE\code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll
+D:\CODE\code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.pdb
+D:\CODE\code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.csprojResolveAssemblyReference.cache
+D:\CODE\code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.dll
+D:\CODE\code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.pdb
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.pdb
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.csprojResolveAssemblyReference.cache
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.dll
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.pdb
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.Properties.Resources.resources
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.csproj.GenerateResource.Cache
