@@ -367,7 +367,7 @@ class HeaterBuilder
         NXFunction.ImportAndRoation(path_heater, p1, heater_line.dir);
         //扫描
         NXFunction.CreateGuideSwept(curve_index, "SHEET-HEATER", heater_line.curves, 0, "");
-        NXFunction.DeleteParts("SHEET-HEATER", 1);
+        NXFunction.DeleteBody("SHEET-HEATER");
     }
 
     ////刻字
