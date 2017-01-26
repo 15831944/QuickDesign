@@ -11,7 +11,7 @@ class HeaterBuilder
     DataControl sql;
     int layerNum;
 
-    List<HeaterSegment> segments;//所有加热线
+    List<HeaterSegment> segments = new List<HeaterSegment>();//所有加热线
 
     public HeaterBuilder(ManifoldInfo manifold)
     {
@@ -55,11 +55,11 @@ class HeaterBuilder
             Body swept = CreateSwept(i + 1, heaterLines[i]);
             swept.MirrorBody(-manifold.ManifoldH / 2);
             //生成上层的管道，并插入属性
-            CreateTube(i + 1, heaterLines[i], 6.5, 0, Z);
+            Body tube = CreateTube(i + 1, heaterLines[i], 6.5, 0, Z);
             //生成上层陶瓷接线盒，并和管道合并
-            CreateBox(i + 1, heaterLines[i].dir, heaterLines[i], Z);
-            ////复制生成下层加热线
-            //NXFunction::CopyBodyByIncrement("TUBE-" + std::to_string((long double)(i + 1)),0,0,-H - 2 * Z);
+            CreateBox(tube,i + 1, heaterLines[i].dir, heaterLines[i], Z);
+            //复制生成下层加热线
+            tube.CopyBodyByIncrement(0,0,-manifold.ManifoldH - 2 * Z);
         }
     //   //3——后续
     //   Body* body = NXFunction::GetBodyByName("MANIFOLD");
@@ -78,7 +78,7 @@ class HeaterBuilder
     //std::vector<Body*> bodies = NXFunction::GetBodiesByName("TUBE-");
     //   NXFunction::MoveBodies2Layer(40,bodies);
 
-}
+    }
 
     private double GetSegments()
     {
@@ -288,12 +288,13 @@ class HeaterBuilder
     /// <param name="outer_D"></param>
     /// <param name="innner_D"></param>
     /// <param name="Z"></param>
-    private void CreateTube(int index,HeaterLine heater_line,double outer_D,double innner_D,double Z)
+    private Body CreateTube(int index,HeaterLine heater_line,double outer_D,double innner_D,double Z)
     {
         NXFunction.CreateTube(index, heater_line.curves, 6.5, 0);
         Body body = NXFunction.GetBodyByName("TUBE-" + index.ToString());
         SaveCode2Tube(body, index, heater_line.length);
-        body.MoveBodyByIncrement(0, 0, Z);        
+        body.MoveBodyByIncrement(0, 0, Z);
+        return body;
     }
 
     /// <summary>
@@ -342,7 +343,7 @@ class HeaterBuilder
     /// <param name="dir"></param>
     /// <param name="heater_line"></param>
     /// <param name="Z"></param>
-    private void CreateBox(int curve_index,Vector3d dir,HeaterLine heater_line,double Z)
+    private void CreateBox(Body tube,int curve_index,Vector3d dir,HeaterLine heater_line,double Z)
     {
         string path_box = sql.InstallPath + "\\Part_Base\\TBH.prt";
         heater_line.start_point.Z = Z;
@@ -356,7 +357,7 @@ class HeaterBuilder
         if (NXFunction.UnitePart("TUBE-" + curve_index.ToString(), "TBH"))
             NXFunction.NumberingPart(curve_index * 2, "TBH", heater_line.start_point, 0, 1);
 
-        NXFunction.RemoveParameters("TUBE-" + std.to_string((double)curve_index));
+        tube.RemoveParameters();
     }
 
     private Body CreateSwept(int curve_index, HeaterLine heater_line)
@@ -473,7 +474,7 @@ class HeaterSegment
 
 class HeaterLine//一条完整的加热线中心线
 {
-	public List<Curve> curves;
+	public List<Curve> curves = new List<Curve>();
     public Point3d start_point;
     public Point3d end_point;
     public Point3d other_point;
