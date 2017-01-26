@@ -60,6 +60,7 @@ class HeaterBuilder
             CreateBox(tube,i + 1, heaterLines[i].dir, heaterLines[i], Z);
             //复制生成下层加热线
             tube.CopyBodyByIncrement(0,0,-manifold.ManifoldH - 2 * Z);
+            break;
         }
     //   //3——后续
     //   Body* body = NXFunction::GetBodyByName("MANIFOLD");
@@ -349,11 +350,11 @@ class HeaterBuilder
         heater_line.start_point.Z = Z;
         heater_line.end_point.Z = Z;
 
-        NXFunction.ImportAndRoation(path_box, heater_line.start_point, dir);
+        NXFunction.ImportAndRoationY(path_box, heater_line.start_point, dir,1);
         if (NXFunction.UnitePart("TUBE-" + curve_index.ToString(), "TBH"))
             NXFunction.NumberingPart(curve_index * 2, "TBH", heater_line.start_point, 0, 1);
 
-        NXFunction.ImportAndRoation(path_box, heater_line.end_point, dir);
+        NXFunction.ImportAndRoationY(path_box, heater_line.end_point, dir, 1);
         if (NXFunction.UnitePart("TUBE-" + curve_index.ToString(), "TBH"))
             NXFunction.NumberingPart(curve_index * 2, "TBH", heater_line.start_point, 0, 1);
 
@@ -365,7 +366,7 @@ class HeaterBuilder
         Point3d p1 = new Point3d(heater_line.start_point.X, heater_line.start_point.Y, -3.5);
         //插入片体获得界面
         string path_heater = sql.InstallPath + "\\Part_Base\\heater.prt";
-        NXFunction.ImportAndRoation(path_heater, p1, heater_line.dir);
+        NXFunction.ImportAndRoationY(path_heater, p1, heater_line.dir,1);
         //扫描
         NXFunction.CreateGuideSwept(curve_index, "SHEET-HEATER", heater_line.curves, 0, "");
         NXFunction.DeleteBody("SHEET-HEATER");
