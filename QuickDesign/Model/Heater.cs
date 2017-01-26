@@ -50,9 +50,9 @@ class HeaterBuilder
             if (heaterLines[i].curves.Count < 1) continue;
             ////创建文字
             //CreateText(i + 1, heaterLines[i]);
-            ////生成上下两层的线槽		
-            //CreateSwept(i + 1, heaterLines[i]);
-            //NXFunction::MirrorBody("SWEPT-" + std::to_string((long double)(i + 1)),-H / 2);
+            //生成上下两层的线槽		
+            CreateSwept(i + 1, heaterLines[i]);
+            NXFunction.MirrorBody("SWEPT-" + (i + 1).ToString(), -H / 2);
             //生成上层的管道，并插入属性
             CreateTube(i + 1, heaterLines[i], 6.5, 0, Z);
             //生成上层陶瓷接线盒，并和管道合并
@@ -335,7 +335,13 @@ class HeaterBuilder
         body.SetAttribute("陶瓷接线盒2", "陶瓷接线盒2", "HR23049000001F");
     }
 
-    //生成上层陶瓷接线盒，并和管道合并
+    /// <summary>
+    /// 生成上层陶瓷接线盒，并和管道合并
+    /// </summary>
+    /// <param name="curve_index"></param>
+    /// <param name="dir"></param>
+    /// <param name="heater_line"></param>
+    /// <param name="Z"></param>
     private void CreateBox(int curve_index,Vector3d dir,HeaterLine heater_line,double Z)
     {
         string path_box = sql.InstallPath + "\\Part_Base\\TBH.prt";
@@ -343,22 +349,22 @@ class HeaterBuilder
         heater_line.end_point.Z = Z;
 
         NXFunction.ImportAndRoation(path_box, heater_line.start_point, dir);
-        if (NXFunction.UnitePart("TUBE-" + std.to_string((double)curve_index), "TBH") == 0)
-            NXFunction.NumberingPart2(curve_index * 2, "TBH", 1);
+        if (NXFunction.UnitePart("TUBE-" + curve_index.ToString(), "TBH"))
+            NXFunction.NumberingPart(curve_index * 2, "TBH", heater_line.start_point, 0, 1);
 
         NXFunction.ImportAndRoation(path_box, heater_line.end_point, dir);
-        if (NXFunction.UnitePart("TUBE-" + std.to_string((double)curve_index), "TBH") == 0)
-            NXFunction.NumberingPart2(curve_index * 2 + 1, "TBH", 1);
+        if (NXFunction.UnitePart("TUBE-" + curve_index.ToString(), "TBH"))
+            NXFunction.NumberingPart(curve_index * 2, "TBH", heater_line.start_point, 0, 1);
 
         NXFunction.RemoveParameters("TUBE-" + std.to_string((double)curve_index));
     }
 
     void CreateSwept(int curve_index, HeaterLine heater_line)
     {
-        Point3d p1(heater_line.start_point.X, heater_line.start_point.Y, -3.5);
+        Point3d p1 = new Point3d(heater_line.start_point.X, heater_line.start_point.Y, -3.5);
         //插入片体获得界面
-        NXString path_heater = str_BHRT + "\\Part_Base\\heater.prt";
-        NXFunction.ImportAndRoation(path_heater, p1, heater_line.dir, 1);
+        string path_heater = sql.InstallPath + "\\Part_Base\\heater.prt";
+        NXFunction.ImportAndRoation(path_heater, p1, heater_line.dir);
         //扫描
         NXFunction.CreateGuideSwept(curve_index, "SHEET-HEATER", heater_line.curves, 0, "");
         NXFunction.DeleteParts("SHEET-HEATER", 1);
