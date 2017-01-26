@@ -30,6 +30,7 @@ class HeaterBuilder
         double totolLen = GetSegments();//得到所有加热线段和总长度
 
         if (totolLen == 0) return;
+        double Z = -3.7;
 
         //1——遍历线段，获得一条条的线
         List<HeaterLine> heaterLines = new List<HeaterLine>();
@@ -51,8 +52,8 @@ class HeaterBuilder
             ////创建文字
             //CreateText(i + 1, heaterLines[i]);
             //生成上下两层的线槽		
-            CreateSwept(i + 1, heaterLines[i]);
-            NXFunction.MirrorBody("SWEPT-" + (i + 1).ToString(), -H / 2);
+            Body swept = CreateSwept(i + 1, heaterLines[i]);
+            swept.MirrorBody(-manifold.ManifoldH / 2);
             //生成上层的管道，并插入属性
             CreateTube(i + 1, heaterLines[i], 6.5, 0, Z);
             //生成上层陶瓷接线盒，并和管道合并
@@ -292,8 +293,7 @@ class HeaterBuilder
         NXFunction.CreateTube(index, heater_line.curves, 6.5, 0);
         Body body = NXFunction.GetBodyByName("TUBE-" + index.ToString());
         SaveCode2Tube(body, index, heater_line.length);
-        body.MoveBodyByIncrement(0, 0, Z);
-        
+        body.MoveBodyByIncrement(0, 0, Z);        
     }
 
     /// <summary>
@@ -359,7 +359,7 @@ class HeaterBuilder
         NXFunction.RemoveParameters("TUBE-" + std.to_string((double)curve_index));
     }
 
-    void CreateSwept(int curve_index, HeaterLine heater_line)
+    private Body CreateSwept(int curve_index, HeaterLine heater_line)
     {
         Point3d p1 = new Point3d(heater_line.start_point.X, heater_line.start_point.Y, -3.5);
         //插入片体获得界面
@@ -368,6 +368,8 @@ class HeaterBuilder
         //扫描
         NXFunction.CreateGuideSwept(curve_index, "SHEET-HEATER", heater_line.curves, 0, "");
         NXFunction.DeleteBody("SHEET-HEATER");
+
+        return NXFunction.GetBodyByName("SWEPT-" + curve_index.ToString());
     }
 
     ////刻字
