@@ -59,26 +59,24 @@ class HeaterBuilder
             //生成上层陶瓷接线盒，并和管道合并
             CreateBox(tube,i + 1, heaterLines[i].dir, heaterLines[i], Z);
             //复制生成下层加热线
-            tube.CopyBodyByIncrement(0,0,-manifold.ManifoldH - 2 * Z);
-            break;
+            tube.CopyBodyByIncrement(0,0,-manifold.ManifoldH - 2 * Z);            
         }
-    //   //3——后续
-    //   Body* body = NXFunction::GetBodyByName("MANIFOLD");
-    //if(body!=NULL)
-    // if(!body->IsSheetBody()) 
-    //  NXFunction::MultiSubPart("MANIFOLD","SWEPT-",1);
+        //   //3——后续
+        //   Body* body = NXFunction::GetBodyByName("MANIFOLD");
+        //if(body!=NULL)
+        // if(!body->IsSheetBody()) 
+        //  NXFunction::MultiSubPart("MANIFOLD","SWEPT-",1);
 
-    //NXFunction::RemoveParameters("MANIFOLD");
-    //   //刻字
-    //   Crave();
-    //   //工艺参数
-    //   string name_part = "MANIFOLD";
-    //   NXFunction::SetAttribute(name_part,"工艺参数","发热管总长",std::to_string(total_length*2));
-    //NXFunction::SetAttribute(name_part,"工艺参数","发热管槽数量",std::to_string((long double)(2*heaterLines.size())));
+        //NXFunction::RemoveParameters("MANIFOLD");
+        //   //刻字
+        //   Crave();
+        //   //工艺参数
+        //   string name_part = "MANIFOLD";
+        //   NXFunction::SetAttribute(name_part,"工艺参数","发热管总长",std::to_string(total_length*2));
+        //NXFunction::SetAttribute(name_part,"工艺参数","发热管槽数量",std::to_string((long double)(2*heaterLines.size())));
 
-    //std::vector<Body*> bodies = NXFunction::GetBodiesByName("TUBE-");
-    //   NXFunction::MoveBodies2Layer(40,bodies);
-
+        List<Body> bodies = NXFunction.GetBodiesByName("TUBE-");
+        bodies.MoveBodies2Layer(40);
     }
 
     private double GetSegments()
