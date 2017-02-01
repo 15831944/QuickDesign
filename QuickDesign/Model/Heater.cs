@@ -61,22 +61,20 @@ class HeaterBuilder
             //复制生成下层加热线
             tube.CopyBodyByIncrement(0,0,-manifold.ManifoldH - 2 * Z);            
         }
-        //   //3——后续
-        //   Body* body = NXFunction::GetBodyByName("MANIFOLD");
-        //if(body!=NULL)
-        // if(!body->IsSheetBody()) 
-        //  NXFunction::MultiSubPart("MANIFOLD","SWEPT-",1);
 
-        //NXFunction::RemoveParameters("MANIFOLD");
+        //3——后续
+        Body target = NXFunction.GetBodyByName("MANIFOLD");
+        List<Body> tools = NXFunction.GetBodiesByName("SWEPT-");
+        target.SubPart(tools);
+
+        target.RemoveParameters();
         //   //刻字
         //   Crave();
-        //   //工艺参数
-        //   string name_part = "MANIFOLD";
-        //   NXFunction::SetAttribute(name_part,"工艺参数","发热管总长",std::to_string(total_length*2));
-        //NXFunction::SetAttribute(name_part,"工艺参数","发热管槽数量",std::to_string((long double)(2*heaterLines.size())));
+        target.SetAttribute("工艺参数","发热管总长",(totolLen * 2).ToString());
+        target.SetAttribute("工艺参数", "发热管槽数量", (2 * heaterLines.Count).ToString());
 
-        List<Body> bodies = NXFunction.GetBodiesByName("TUBE-");
-        bodies.MoveBodies2Layer(40);
+        List<Body> tubes = NXFunction.GetBodiesByName("TUBE-");
+        tubes.MoveBodies2Layer(40);
     }
 
     private double GetSegments()
