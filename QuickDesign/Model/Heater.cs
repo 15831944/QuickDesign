@@ -68,8 +68,10 @@ class HeaterBuilder
         target.SubPart(tools);
 
         target.RemoveParameters();
-        //   //刻字
-        //   Crave();
+        //刻字
+        Crave();
+
+        //物料编码
         target.SetAttribute("工艺参数","发热管总长",(totolLen * 2).ToString());
         target.SetAttribute("工艺参数", "发热管槽数量", (2 * heaterLines.Count).ToString());
 
@@ -417,46 +419,47 @@ class HeaterBuilder
         point_insert.Z = -manifold.ManifoldH;
         NXFunction.CreateText(point_insert, -1, vec_txt, "M" + index.ToString());
     }
-    //void Crave
-    //{
-    //    Session* theSession = Session.GetSession;
-    //    Part* workPart(theSession.Parts.Work);
-    //    std.vector<Features.Text*> texts;
 
-    //    Features.FeatureCollection.iterator it;
-    //    Features.FeatureCollection* cols = workPart.Features;
-    //    for (it = cols.begin; it != cols.end; it++)
-    //    {
-    //        Features.Feature* feature(dynamic_cast<Features.Feature*>(*it));
-    //        string feature_type = feature.FeatureType.GetLocaleText;
-    //        if (feature_type != "TEXT") continue;
-    //        Features.Text* text1(dynamic_cast<Features.Text*>(feature));
-    //        if (text1 == NULL) continue;
+    void Crave
+    {
+        Session* theSession = Session.GetSession;
+        Part* workPart(theSession.Parts.Work);
+        std.vector<Features.Text*> texts;
 
-    //        texts.push_back(text1);
-    //    }
+        Features.FeatureCollection.iterator it;
+        Features.FeatureCollection* cols = workPart.Features;
+        for (it = cols.begin; it != cols.end; it++)
+        {
+            Features.Feature* feature(dynamic_cast<Features.Feature*>(*it));
+            string feature_type = feature.FeatureType.GetLocaleText;
+            if (feature_type != "TEXT") continue;
+            Features.Text* text1(dynamic_cast<Features.Text*>(feature));
+            if (text1 == NULL) continue;
 
-    //    NXFunction.CraveOnManifold(texts);
-    //    NXFunction.RemoveParameters("MANIFOLD");
+            texts.push_back(text1);
+        }
 
-    //    //删除发热管文字
-    //    Session.UndoMarkId markId1;
-    //    markId1 = theSession.SetUndoMark(Session.MarkVisibilityInvisible, "Delete");
-    //    bool notifyOnDelete1 = theSession.Preferences.Modeling.NotifyOnDelete;
+        NXFunction.CraveOnManifold(texts);
+        NXFunction.RemoveParameters("MANIFOLD");
 
-    //theSession.UpdateManager.ClearErrorList;
-    //    Session.UndoMarkId markId2;
-    //markId2 = theSession.SetUndoMark(Session.MarkVisibilityVisible, "Delete");
+        //删除发热管文字
+        Session.UndoMarkId markId1;
+        markId1 = theSession.SetUndoMark(Session.MarkVisibilityInvisible, "Delete");
+        bool notifyOnDelete1 = theSession.Preferences.Modeling.NotifyOnDelete;
 
-    //    std.vector<NXObject*> objs;
-    //    for (int i = 0; i<texts.size; i++)
-    //        objs.push_back(texts[i]);
-    //    int nErrs1 = theSession.UpdateManager.AddToDeleteList(objs);
+    theSession.UpdateManager.ClearErrorList;
+        Session.UndoMarkId markId2;
+    markId2 = theSession.SetUndoMark(Session.MarkVisibilityVisible, "Delete");
 
-    //bool notifyOnDelete2 = theSession.Preferences.Modeling.NotifyOnDelete;
-    //int nErrs2 = theSession.UpdateManager.DoUpdate(markId2);
-    //theSession.DeleteUndoMark(markId1, NULL);
-    //}
+        std.vector<NXObject*> objs;
+        for (int i = 0; i<texts.size; i++)
+            objs.push_back(texts[i]);
+        int nErrs1 = theSession.UpdateManager.AddToDeleteList(objs);
+
+    bool notifyOnDelete2 = theSession.Preferences.Modeling.NotifyOnDelete;
+    int nErrs2 = theSession.UpdateManager.DoUpdate(markId2);
+    theSession.DeleteUndoMark(markId1, NULL);
+    }
 }
 
 class HeaterSegment
