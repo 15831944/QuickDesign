@@ -421,6 +421,9 @@ class HeaterBuilder
         NXFunction.CreateText(point_insert, -1, vec_txt, "M" + index.ToString());
     }
 
+    /// <summary>
+    /// 刻字
+    /// </summary>
     private void Crave()
     {
         Session theSession = Session.GetSession();
