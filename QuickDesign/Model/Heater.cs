@@ -51,7 +51,7 @@ class HeaterBuilder
         {
             if (heaterLines[i].curves.Count < 1) continue;
             //创建文字
-            //CreateText(i + 1, heaterLines[i]);
+            CreateText(i + 1, heaterLines[i]);
             //生成上下两层的线槽		
             Body swept = CreateSwept(i + 1, heaterLines[i]);
             swept.MirrorBody(-manifold.ManifoldH / 2);
