@@ -49,7 +49,7 @@ class HeaterBuilder
         for (int i = 0; i < heaterLines.Count; i++)
         {
             if (heaterLines[i].curves.Count < 1) continue;
-            ////创建文字
+            //创建文字
             //CreateText(i + 1, heaterLines[i]);
             //生成上下两层的线槽		
             Body swept = CreateSwept(i + 1, heaterLines[i]);
@@ -370,49 +370,53 @@ class HeaterBuilder
         return NXFunction.GetBodyByName("SWEPT-" + curve_index.ToString());
     }
 
-    ////刻字
-    //void CreateText(int index, HeaterLine heater_line)
-    //{
-    //    if (heater_line.curves.size < 2) return;
+    /// <summary>
+    /// 创建文字
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="heater_line"></param>
+    private void CreateText(int index, HeaterLine heater_line)
+    {
+        if (heater_line.curves.Count < 2) return;
 
-    //    //加热器的起点终点向量的中点
-    //    Point3d point_mid((heater_line.start_point.X + heater_line.end_point.X) / 2,
-    //                     (heater_line.start_point.Y + heater_line.end_point.Y) / 2,
-    //                     0);
+        //加热器的起点终点向量的中点
+        Point3d point_mid = new Point3d((heater_line.start_point.X + heater_line.end_point.X) / 2,
+                                         (heater_line.start_point.Y + heater_line.end_point.Y) / 2,
+                                         0);
 
-    //    //刻字插入点
-    //    Point3d point_insert(0, 0, 0);
-    //    Vector3d vertical(0, 0, 0);
-    //    if (heater_line.other == 1)
-    //    {
-    //        vertical.X = heater_line.other_point.X - heater_line.end_point.X;
-    //        vertical.Y = heater_line.other_point.Y - heater_line.end_point.Y;
-    //    }
-    //    else
-    //    {
-    //        vertical.X = heater_line.other_point.X - heater_line.start_point.X;
-    //        vertical.Y = heater_line.other_point.Y - heater_line.start_point.Y;
-    //    }
-    //    double unitization = sqrt(vertical.X * vertical.X + vertical.Y * vertical.Y);
-    //    vertical.X = vertical.X / unitization;
-    //    vertical.Y = vertical.Y / unitization;
-    //    point_insert.X = 32 * vertical.X + point_mid.X;
-    //    point_insert.Y = 32 * vertical.Y + point_mid.Y;
+        //刻字插入点
+        Point3d point_insert = new Point3d(0, 0, 0);
+        Vector3d vertical = new Vector3d(0, 0, 0);
+        if (heater_line.other == 1)
+        {
+            vertical.X = heater_line.other_point.X - heater_line.end_point.X;
+            vertical.Y = heater_line.other_point.Y - heater_line.end_point.Y;
+        }
+        else
+        {
+            vertical.X = heater_line.other_point.X - heater_line.start_point.X;
+            vertical.Y = heater_line.other_point.Y - heater_line.start_point.Y;
+        }
+        double unitization = Math.Sqrt(vertical.X * vertical.X + vertical.Y * vertical.Y);
+        vertical.X = vertical.X / unitization;
+        vertical.Y = vertical.Y / unitization;
+        point_insert.X = 32 * vertical.X + point_mid.X;
+        point_insert.Y = 32 * vertical.Y + point_mid.Y;
 
-    //    //文字的向量
-    //    Vector3d vec_txt(heater_line.end_point.X - heater_line.start_point.X,
-    //                    heater_line.end_point.Y - heater_line.start_point.Y, 0);
-    //    double verify = (heater_line.start_point.X - point_insert.X) * (heater_line.end_point.Y - point_insert.Y);
-    //    verify = verify - (heater_line.start_point.Y - point_insert.Y) * (heater_line.end_point.X - point_insert.X);
+        //文字的向量
+        Vector3d vec_txt = new Vector3d(heater_line.end_point.X - heater_line.start_point.X,
+                        heater_line.end_point.Y - heater_line.start_point.Y, 0);
+        double verify = (heater_line.start_point.X - point_insert.X) * (heater_line.end_point.Y - point_insert.Y);
+        verify = verify - (heater_line.start_point.Y - point_insert.Y) * (heater_line.end_point.X - point_insert.X);
 
-    //    vec_txt.X *= verify;
-    //    vec_txt.Y *= verify;
+        vec_txt.X *= verify;
+        vec_txt.Y *= verify;
 
-    //    //创建文字
-    //    NXFunction.CreateText(point_insert, 1, vec_txt, "M" + std.to_string((double)index));
-    //    point_insert.Z = -H;
-    //    NXFunction.CreateText(point_insert, -1, vec_txt, "M" + std.to_string((double)index));
-    //}
+        //创建文字
+        NXFunction.CreateText(point_insert, 1, vec_txt, "M" + index.ToString());
+        point_insert.Z = -manifold.ManifoldH;
+        NXFunction.CreateText(point_insert, -1, vec_txt, "M" + index.ToString());
+    }
     //void Crave
     //{
     //    Session* theSession = Session.GetSession;
@@ -440,18 +444,18 @@ class HeaterBuilder
     //    markId1 = theSession.SetUndoMark(Session.MarkVisibilityInvisible, "Delete");
     //    bool notifyOnDelete1 = theSession.Preferences.Modeling.NotifyOnDelete;
 
-    //    theSession.UpdateManager.ClearErrorList;
+    //theSession.UpdateManager.ClearErrorList;
     //    Session.UndoMarkId markId2;
-    //    markId2 = theSession.SetUndoMark(Session.MarkVisibilityVisible, "Delete");
+    //markId2 = theSession.SetUndoMark(Session.MarkVisibilityVisible, "Delete");
 
     //    std.vector<NXObject*> objs;
-    //    for (int i = 0; i < texts.size; i++)
+    //    for (int i = 0; i<texts.size; i++)
     //        objs.push_back(texts[i]);
     //    int nErrs1 = theSession.UpdateManager.AddToDeleteList(objs);
 
-    //    bool notifyOnDelete2 = theSession.Preferences.Modeling.NotifyOnDelete;
-    //    int nErrs2 = theSession.UpdateManager.DoUpdate(markId2);
-    //    theSession.DeleteUndoMark(markId1, NULL);
+    //bool notifyOnDelete2 = theSession.Preferences.Modeling.NotifyOnDelete;
+    //int nErrs2 = theSession.UpdateManager.DoUpdate(markId2);
+    //theSession.DeleteUndoMark(markId1, NULL);
     //}
 }
 
