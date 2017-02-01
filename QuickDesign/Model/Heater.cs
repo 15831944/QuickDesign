@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NXOpen;
 using NXOpen.UF;
+using NXOpen.Features;
 
 class HeaterBuilder
 {
@@ -420,45 +421,45 @@ class HeaterBuilder
         NXFunction.CreateText(point_insert, -1, vec_txt, "M" + index.ToString());
     }
 
-    void Crave
+    private void Crave()
     {
-        Session* theSession = Session.GetSession;
-        Part* workPart(theSession.Parts.Work);
-        std.vector<Features.Text*> texts;
+        Session theSession = Session.GetSession();
+        Part workPart = theSession.Parts.Work;
 
-        Features.FeatureCollection.iterator it;
-        Features.FeatureCollection* cols = workPart.Features;
-        for (it = cols.begin; it != cols.end; it++)
+        List<Text> texts = new List<Text>();
+        
+        FeatureCollection cols = workPart.Features;
+        foreach (Feature feature in cols)
         {
-            Features.Feature* feature(dynamic_cast<Features.Feature*>(*it));
-            string feature_type = feature.FeatureType.GetLocaleText;
-            if (feature_type != "TEXT") continue;
-            Features.Text* text1(dynamic_cast<Features.Text*>(feature));
-            if (text1 == NULL) continue;
+            string featureType = feature.FeatureType.ToString();
+            if (featureType != "TEXT") continue;
 
-            texts.push_back(text1);
+            Text text = (Text)feature;
+            if (text == null) continue;
+
+            texts.Add(text);
         }
-
+        
         NXFunction.CraveOnManifold(texts);
         NXFunction.RemoveParameters("MANIFOLD");
 
         //删除发热管文字
         Session.UndoMarkId markId1;
-        markId1 = theSession.SetUndoMark(Session.MarkVisibilityInvisible, "Delete");
+        markId1 = theSession.SetUndoMark(Session.MarkVisibility.Invisible, "Delete");
         bool notifyOnDelete1 = theSession.Preferences.Modeling.NotifyOnDelete;
 
-    theSession.UpdateManager.ClearErrorList;
+        theSession.UpdateManager.ClearErrorList();
         Session.UndoMarkId markId2;
-    markId2 = theSession.SetUndoMark(Session.MarkVisibilityVisible, "Delete");
+        markId2 = theSession.SetUndoMark(Session.MarkVisibility.Visible, "Delete");
 
-        std.vector<NXObject*> objs;
-        for (int i = 0; i<texts.size; i++)
-            objs.push_back(texts[i]);
+        NXObject[] objs = new NXObject[texts.Count];
+        for (int i = 0; i<texts.Count; i++)
+            objs[i] = texts[i];
         int nErrs1 = theSession.UpdateManager.AddToDeleteList(objs);
 
-    bool notifyOnDelete2 = theSession.Preferences.Modeling.NotifyOnDelete;
-    int nErrs2 = theSession.UpdateManager.DoUpdate(markId2);
-    theSession.DeleteUndoMark(markId1, NULL);
+        bool notifyOnDelete2 = theSession.Preferences.Modeling.NotifyOnDelete;
+        int nErrs2 = theSession.UpdateManager.DoUpdate(markId2);
+        theSession.DeleteUndoMark(markId1, null);
     }
 }
 
