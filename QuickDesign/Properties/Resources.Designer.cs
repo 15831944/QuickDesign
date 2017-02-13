@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Properties {
+namespace QuickDesign.Properties {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace Properties {
         }
         
         /// <summary>
-        ///   查找类似 BHRT 的本地化字符串。
+        ///   查找类似 ims 的本地化字符串。
         /// </summary>
         public static string Customer {
             get {
