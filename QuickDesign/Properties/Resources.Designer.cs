@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuickDesign.Properties {
+namespace Properties {
     using System;
     
     
