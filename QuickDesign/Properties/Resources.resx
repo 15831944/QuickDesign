@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Customer" xml:space="preserve">
-    <value>ims</value>
+    <value>BHRT</value>
     <comment>环境变量ug****，数据库***</comment>
   </data>
 </root>
