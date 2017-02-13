@@ -159,20 +159,20 @@ public class QuickDesign
             HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
             heaterBuilder.Commit();
 
-            //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
-            //runnerInsertBuilder.Commit();
+            RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
+            runnerInsertBuilder.Commit();
 
-            //GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder();
-            //generalPartBuilder.Commit("SWP",0);
-            //generalPartBuilder.Commit("OIL", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("OMS-CB", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("OMF-CB", manifold.TopH + manifold.CylinderH - 25);
-            //generalPartBuilder.Commit("AIR", manifold.TopH + manifold.CylinderH - 25);
-            //generalPartBuilder.Commit("ADP", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("ZJU", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("ZJO", 0);
+            GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder();
+            generalPartBuilder.Commit("SWP", 0);
+            generalPartBuilder.Commit("OIL", -manifold.ManifoldH);
+            generalPartBuilder.Commit("OMS-CB", -manifold.ManifoldH);
+            generalPartBuilder.Commit("OMF-CB", manifold.TopH + manifold.CylinderH - 25);
+            generalPartBuilder.Commit("AIR", manifold.TopH + manifold.CylinderH - 25);
+            generalPartBuilder.Commit("ADP", -manifold.ManifoldH);
+            generalPartBuilder.Commit("ZJU", -manifold.ManifoldH);
+            generalPartBuilder.Commit("ZJO", 0);
 
-            //generalPartBuilder.CommitOther();
+            generalPartBuilder.CommitOther();
         }
         catch (Exception ex)
         {
