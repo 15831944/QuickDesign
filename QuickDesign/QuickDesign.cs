@@ -151,13 +151,20 @@ public class QuickDesign
         int errorCode = 0;
         try
         {
+            DataControl sql = new DataControl();
+
             ManifoldInfo manifold = GetUserInput();
 
-            ManifoldBuilder builder = new ManifoldBuilder(manifold);
-            builder.Commit();
+            //ManifoldBuilder builder = new ManifoldBuilder(manifold);
+            //builder.Commit();
 
-            HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
-            heaterBuilder.Commit();
+            //HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
+            //heaterBuilder.Commit();
+
+            new InletBushingBuilder(sql,manifold).Commit();
+            new CentrePinBuilder(sql, manifold).Commit();
+            new DowelPinBuilder(sql, manifold).Commit();
+            new TCBuilder(sql, manifold).Commit();
 
             //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
             //runnerInsertBuilder.Commit();
