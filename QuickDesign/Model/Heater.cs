@@ -44,6 +44,7 @@ class HeaterBuilder
             heaterLines.Add(heater_line);
         }
 
+        //1.5 发热管排序
         heaterLines.OrderBy(i => i.orderPoint.X).ThenBy(i => i.orderPoint.Y);
 
         //2——生成
