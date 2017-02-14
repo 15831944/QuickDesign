@@ -165,6 +165,7 @@ public class QuickDesign
             new CentrePinBuilder(sql, manifold).Commit();
             new DowelPinBuilder(sql, manifold).Commit();
             new TCBuilder(sql, manifold).Commit();
+            new InsulatorBuilder(sql, manifold).Commit();
 
             //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
             //runnerInsertBuilder.Commit();
