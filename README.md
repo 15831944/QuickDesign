@@ -1,6 +1,6 @@
 # QuickDesign
 
-C# NX 二次开发 心情不好
+C# NX 二次开发 （真是好笑）
 
 1、创建本地分支 local_branch
 
