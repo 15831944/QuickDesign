@@ -82,8 +82,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy D:\0_CAD\UG\0_Project\IMS\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll D:\0_CAD\UG\0_Project\IMS\Application /Y  /K
-::xcopy D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll D:\0_CAD\UG\0_Project\BHRT\Application /Y  /K
+    <PostBuildEvent>xcopy D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll D:\0_CAD\UG\0_Project\BHRT\Application /Y  /K
 ::xcopy D:\CODE\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll \\stsrv11\BHRT\BHRT\Application /Y  /K</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

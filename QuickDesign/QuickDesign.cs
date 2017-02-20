@@ -181,6 +181,14 @@ public class QuickDesign
             generalPartBuilder.Commit("ZJO", 0);
 
             generalPartBuilder.CommitOther();
+
+            //TODO气缸油缸
+
+            //TODO流道
+
+            //TODO线架
+
+            //TODO隐藏假体
         }
         catch (Exception ex)
         {
