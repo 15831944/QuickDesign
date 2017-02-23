@@ -5,6 +5,7 @@ using System.Text;
 using NXOpen;
 using NXOpen.UF;
 using NXOpen.Features;
+using NXOpen.Tooling;
 
 class HeaterBuilder
 {
@@ -43,7 +44,7 @@ class HeaterBuilder
             HeaterLine heater_line = GetHeaterLine(segments[i].curve);
             heaterLines.Add(heater_line);
         }
-
+        
         //1.5 发热管排序
         heaterLines.OrderBy(i => i.orderPoint.X).ThenBy(i => i.orderPoint.Y);
 
