@@ -44,7 +44,7 @@ class HeaterBuilder
             HeaterLine heater_line = GetHeaterLine(segments[i].curve);
             heaterLines.Add(heater_line);
         }
-        CloneObject
+        
         //1.5 发热管排序
         heaterLines.OrderBy(i => i.orderPoint.X).ThenBy(i => i.orderPoint.Y);
 
