@@ -159,27 +159,27 @@ public class QuickDesign
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
             builder.Commit();
 
-            HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
-            heaterBuilder.Commit();
+            //HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
+            //heaterBuilder.Commit();
 
-            new InletBushingBuilder(sql, manifold).Commit();
-            new CentrePinBuilder(sql, manifold).Commit();
-            new DowelPinBuilder(sql, manifold).Commit();
-            new TCBuilder(sql, manifold).Commit();
-            new InsulatorBuilder(sql, manifold).Commit();
+            //new InletBushingBuilder(sql, manifold).Commit();
+            //new CentrePinBuilder(sql, manifold).Commit();
+            //new DowelPinBuilder(sql, manifold).Commit();
+            //new TCBuilder(sql, manifold).Commit();
+            //new InsulatorBuilder(sql, manifold).Commit();
 
-            RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
-            runnerInsertBuilder.Commit();
+            //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
+            //runnerInsertBuilder.Commit();
 
-            GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder();
-            generalPartBuilder.Commit("SWP", 0);
-            generalPartBuilder.Commit("OIL", -manifold.ManifoldH);
-            generalPartBuilder.Commit("OMS-CB", -manifold.ManifoldH);
-            generalPartBuilder.Commit("OMF-CB", manifold.TopH + manifold.CylinderH - 25);
-            generalPartBuilder.Commit("AIR", manifold.TopH + manifold.CylinderH - 25);
-            generalPartBuilder.Commit("ADP", -manifold.ManifoldH);
-            generalPartBuilder.Commit("ZJU", -manifold.ManifoldH);
-            generalPartBuilder.Commit("ZJO", 0);
+            //GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder();
+            //generalPartBuilder.Commit("SWP", 0);
+            //generalPartBuilder.Commit("OIL", -manifold.ManifoldH);
+            //generalPartBuilder.Commit("OMS-CB", -manifold.ManifoldH);
+            //generalPartBuilder.Commit("OMF-CB", manifold.TopH + manifold.CylinderH - 25);
+            //generalPartBuilder.Commit("AIR", manifold.TopH + manifold.CylinderH - 25);
+            //generalPartBuilder.Commit("ADP", -manifold.ManifoldH);
+            //generalPartBuilder.Commit("ZJU", -manifold.ManifoldH);
+            //generalPartBuilder.Commit("ZJO", 0);
 
             generalPartBuilder.CommitOther();
 
