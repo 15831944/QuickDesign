@@ -181,7 +181,7 @@ public class QuickDesign
             //generalPartBuilder.Commit("ZJU", -manifold.ManifoldH);
             //generalPartBuilder.Commit("ZJO", 0);
 
-            generalPartBuilder.CommitOther();
+            //generalPartBuilder.CommitOther();
 
             //TODOÆø¸×ÓÍ¸×
 
