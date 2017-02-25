@@ -53,7 +53,7 @@ public class QuickDesign
         try
         {
             theQuickDesign = new QuickDesign();
-            // The following method shows the dialog immediately
+            
             theQuickDesign.Show();
         }
         catch (Exception ex)
@@ -151,7 +151,7 @@ public class QuickDesign
         int errorCode = 0;
         try
         {
-            NXFunction.CreateImage();
+            //NXFunction.CreateImage();
             DataControl sql = new DataControl();
 
             ManifoldInfo manifold = GetUserInput();
