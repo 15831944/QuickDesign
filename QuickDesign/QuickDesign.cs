@@ -161,8 +161,8 @@ public class QuickDesign
             ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
             boltBuilder.Commit();
 
-            //HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
-            //heaterBuilder.Commit();
+            HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
+            heaterBuilder.Commit();
 
             new InletBushingBuilder(sql, manifold).Commit();
             new CentrePinBuilder(sql, manifold).Commit();

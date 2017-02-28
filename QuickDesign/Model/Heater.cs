@@ -7,7 +7,7 @@ using NXOpen.UF;
 using NXOpen.Features;
 using NXOpen.Tooling;
 
-class HeaterBuilder
+class HeaterBuilder:AbstractBuilder
 {
     ManifoldInfo manifold;
     DataControl sql;
@@ -23,7 +23,7 @@ class HeaterBuilder
         layerNum = NXFunction.GetLayerNum("3heater");
     }
 
-    public void Commit()
+    public override void Commit()
     {
         if (layerNum == -1) return;
 
