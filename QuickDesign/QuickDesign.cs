@@ -162,7 +162,7 @@ public class QuickDesign
 
             ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
             boltBuilder.Submit();
-            
+
             HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
             heaterBuilder.Submit();
 

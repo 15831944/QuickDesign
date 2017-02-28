@@ -39,6 +39,9 @@ class NozzleCylinderBuilder : BaseBuilder
         g_type = 1;
     }
 
+    /// <summary>
+    /// TODO 属性直接弄出来
+    /// </summary>
     protected override void Commit()
     {
         //删除所有气缸
