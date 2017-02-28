@@ -156,8 +156,11 @@ public class QuickDesign
 
             ManifoldInfo manifold = GetUserInput();
 
-            ManifoldBuilder builder = new ManifoldBuilder(manifold);
-            builder.Commit();
+            //ManifoldBuilder builder = new ManifoldBuilder(manifold);
+            //builder.Commit();
+
+            ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
+            boltBuilder.Commit();
 
             //HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
             //heaterBuilder.Commit();
