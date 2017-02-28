@@ -1,7 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickDesign", "QuickDesign\QuickDesign.csproj", "{2674FFAB-6846-494A-B706-5A4C0208C419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "..\..\..\..\..\..\10_Git\IO\IO\IO.csproj", "{32FD579D-8D8F-4B92-9AB2-088C882B0F86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{2674FFAB-6846-494A-B706-5A4C0208C419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2674FFAB-6846-494A-B706-5A4C0208C419}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2674FFAB-6846-494A-B706-5A4C0208C419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32FD579D-8D8F-4B92-9AB2-088C882B0F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32FD579D-8D8F-4B92-9AB2-088C882B0F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32FD579D-8D8F-4B92-9AB2-088C882B0F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32FD579D-8D8F-4B92-9AB2-088C882B0F86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

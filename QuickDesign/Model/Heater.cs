@@ -7,7 +7,7 @@ using NXOpen.UF;
 using NXOpen.Features;
 using NXOpen.Tooling;
 
-class HeaterBuilder:AbstractBuilder
+class HeaterBuilder:BaseBuilder
 {
     ManifoldInfo manifold;
     DataControl sql;

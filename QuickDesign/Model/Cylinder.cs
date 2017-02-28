@@ -11,7 +11,7 @@ using System.IO;
 using NXOpen.Gateway;
 using System.Data;
 
-class NozzleCylinderBuilder : AbstractBuilder
+class NozzleCylinderBuilder : BaseBuilder
 {
     class Runner
     {
