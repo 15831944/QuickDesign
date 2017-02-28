@@ -65,6 +65,7 @@
     <Compile Include="..\..\RunnerInsert.cs">
       <Link>Model\RunnerInsert.cs</Link>
     </Compile>
+    <Compile Include="Model\Cylinder.cs" />
     <Compile Include="Model\Heater.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

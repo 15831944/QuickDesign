@@ -153,7 +153,7 @@ public class QuickDesign
         {
             //NXFunction.CreateImage();
             DataControl sql = new DataControl();
-
+            bool is_rebulid = NXFunction.CheckBodyExist("MANIFOLD");
             ManifoldInfo manifold = GetUserInput();
 
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
@@ -186,7 +186,9 @@ public class QuickDesign
 
             //generalPartBuilder.CommitOther();
 
-            //TODO气缸油缸
+            //气缸油缸
+            NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold,is_rebulid);
+            cylinderBuilder.Commit();
 
             //TODO流道
 
