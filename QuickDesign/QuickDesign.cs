@@ -1,7 +1,7 @@
 using System;
 using NXOpen;
-using NXOpen.UF;
 using NXOpen.BlockStyler;
+using System.Collections.Generic;
 
 public class QuickDesign
 {
@@ -154,7 +154,9 @@ public class QuickDesign
             DataControl sql = new DataControl();
             bool is_rebulid = NXFunction.CheckBodyExist("MANIFOLD");
             ManifoldInfo manifold = GetUserInput();
-            
+
+            NXFunction.SetLayers();
+
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
             builder.Submit();
 
@@ -180,11 +182,14 @@ public class QuickDesign
             NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
             cylinderBuilder.Submit();
 
-            //TODO流道
+            //流道
+            builder.CreateRunner();
 
             //TODO线架
 
-            //TODO隐藏假体
+            //隐藏假体
+            List<Body> bodies = NXFunction.GetBodiesByName("SUB");
+            bodies.MoveBodies2Layer(42);
         }
         catch (Exception ex)
         {
@@ -214,7 +219,7 @@ public class QuickDesign
         return manifold;
     }
 
-    public int update_cb( NXOpen.BlockStyler.UIBlock block)
+    public int update_cb(UIBlock block)
     {
         try
         {
@@ -290,7 +295,7 @@ public class QuickDesign
         return 0;
     }
         
-    public void focusNotify_cb(NXOpen.BlockStyler.UIBlock block, bool focus)
+    public void focusNotify_cb(UIBlock block, bool focus)
     {
         try
         {
