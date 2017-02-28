@@ -11,7 +11,7 @@ using System.IO;
 using NXOpen.Gateway;
 using System.Data;
 
-class NozzleCylinderBuilder:AbstractBuilder
+class NozzleCylinderBuilder : AbstractBuilder
 {
     class Runner
     {
@@ -39,7 +39,7 @@ class NozzleCylinderBuilder:AbstractBuilder
         g_type = 1;
     }
 
-    public override void Commit()
+    protected override void Commit()
     {
         //删除所有气缸
         NXFunction.DeleteBodies("CYLINDER");

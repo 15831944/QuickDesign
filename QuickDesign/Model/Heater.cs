@@ -23,7 +23,7 @@ class HeaterBuilder:AbstractBuilder
         layerNum = NXFunction.GetLayerNum("3heater");
     }
 
-    public override void Commit()
+    protected override void Commit()
     {
         if (layerNum == -1) return;
 

@@ -159,26 +159,26 @@ public class QuickDesign
             builder.Submit();
 
             ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
-            boltBuilder.Commit();
-
+            boltBuilder.Submit();
+            
             HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
-            heaterBuilder.Commit();
+            heaterBuilder.Submit();
 
-            new InletBushingBuilder(sql, manifold).Commit();
-            new CentrePinBuilder(sql, manifold).Commit();
-            new DowelPinBuilder(sql, manifold).Commit();
-            new TCBuilder(sql, manifold).Commit();
-            new InsulatorBuilder(sql, manifold).Commit();
+            new InletBushingBuilder(sql, manifold).Submit();
+            new CentrePinBuilder(sql, manifold).Submit();
+            new DowelPinBuilder(sql, manifold).Submit();
+            new TCBuilder(sql, manifold).Submit();
+            new InsulatorBuilder(sql, manifold).Submit();
 
             RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
-            runnerInsertBuilder.Commit();
+            runnerInsertBuilder.Submit();
 
             GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder(manifold);
-            generalPartBuilder.Commit();
+            generalPartBuilder.Submit();
 
             //Æø¸×ÓÍ¸×
             NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
-            cylinderBuilder.Commit();
+            cylinderBuilder.Submit();
 
             //TODOÁ÷µÀ
 
