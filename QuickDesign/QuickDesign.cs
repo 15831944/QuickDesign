@@ -151,43 +151,33 @@ public class QuickDesign
         int errorCode = 0;
         try
         {
-            //NXFunction.CreateImage();
             DataControl sql = new DataControl();
             bool is_rebulid = NXFunction.CheckBodyExist("MANIFOLD");
             ManifoldInfo manifold = GetUserInput();
-
+            
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
-            builder.Commit();
+            builder.Submit();
 
-            //ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
-            //boltBuilder.Commit();
+            ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
+            boltBuilder.Commit();
 
             //HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
             //heaterBuilder.Commit();
 
-            //new InletBushingBuilder(sql, manifold).Commit();
-            //new CentrePinBuilder(sql, manifold).Commit();
-            //new DowelPinBuilder(sql, manifold).Commit();
-            //new TCBuilder(sql, manifold).Commit();
-            //new InsulatorBuilder(sql, manifold).Commit();
+            new InletBushingBuilder(sql, manifold).Commit();
+            new CentrePinBuilder(sql, manifold).Commit();
+            new DowelPinBuilder(sql, manifold).Commit();
+            new TCBuilder(sql, manifold).Commit();
+            new InsulatorBuilder(sql, manifold).Commit();
 
-            //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
-            //runnerInsertBuilder.Commit();
+            RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
+            runnerInsertBuilder.Commit();
 
-            //GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder();
-            //generalPartBuilder.Commit("SWP", 0);
-            //generalPartBuilder.Commit("OIL", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("OMS-CB", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("OMF-CB", manifold.TopH + manifold.CylinderH - 25);
-            //generalPartBuilder.Commit("AIR", manifold.TopH + manifold.CylinderH - 25);
-            //generalPartBuilder.Commit("ADP", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("ZJU", -manifold.ManifoldH);
-            //generalPartBuilder.Commit("ZJO", 0);
-
-            //generalPartBuilder.CommitOther();
+            GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder(manifold);
+            generalPartBuilder.Commit();
 
             //Æø¸×ÓÍ¸×
-            NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold,is_rebulid);
+            NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
             cylinderBuilder.Commit();
 
             //TODOÁ÷µÀ

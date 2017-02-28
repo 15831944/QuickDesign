@@ -235,6 +235,7 @@ class NozzleCylinderBuilder
         Body subCylinder = NXFunction.GetBodyByName("SUB_CYLINDER");
         Body fixedBlock = NXFunction.GetBodyByName("FIXED_BLOCK");
         Body subFixedBlock = NXFunction.GetBodyByName("SUB_FIXED_BLOCK");
+        
         //旋转角度
         NXFunction.RotatingPart(block.Angle, point_cylinder, cylinder);
         NXFunction.RotatingPart(block.Angle, point_cylinder, subCylinder);

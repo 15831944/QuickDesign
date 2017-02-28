@@ -27,6 +27,10 @@ class HeaterBuilder
     {
         if (layerNum == -1) return;
 
+        UFSession uf = UFSession.GetUFSession();
+        UFDisp ufDisp = uf.Disp;
+        ufDisp.SetDisplay(UFConstants.UF_DISP_SUPPRESS_DISPLAY);
+
         NXFunction.DeleteBodies("TUBE");
 
         double totolLen = GetSegments();//得到所有加热线段和总长度
@@ -80,6 +84,9 @@ class HeaterBuilder
 
         List<Body> tubes = NXFunction.GetBodiesByName("TUBE-");
         tubes.MoveBodies2Layer(40);
+
+        ufDisp.SetDisplay(UFConstants.UF_DISP_UNSUPPRESS_DISPLAY);
+        ufDisp.RegenerateDisplay();
     }
 
     private double GetSegments()
