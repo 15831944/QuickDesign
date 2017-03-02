@@ -17,4 +17,6 @@ D:\0_CAD\UG\0_Project\IMS\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.Pro
 D:\0_CAD\UG\0_Project\IMS\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.csproj.GenerateResource.Cache
 D:\0_CAD\UG\0_Project\IMS\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.dll
 D:\0_CAD\UG\0_Project\IMS\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.pdb
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\BHRTLib.pdb
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\BHRTLib.xml
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\BHRTLib.dll

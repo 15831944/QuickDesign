@@ -26,10 +26,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BHRTLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Application\BHRTLib.dll</HintPath>
+      <HintPath>..\..\BHRTLib\BHRTLib\bin\Debug\BHRTLib.dll</HintPath>
     </Reference>
     <Reference Include="NXOpen, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -74,8 +77,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll D:\0_CAD\UG\0_Project\BHRT\Application /Y  /K
-::xcopy D:\CODE\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll \\stsrv11\BHRT\BHRT\Application /Y  /K</PostBuildEvent>
+    <PostBuildEvent>xcopy $(TargetPath) %25ugbhrt%25\Application /Y  /K</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
