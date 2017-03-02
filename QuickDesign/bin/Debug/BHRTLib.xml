@@ -376,6 +376,51 @@
             <param name="wire_line"></param>
             <param name="index"></param>
         </member>
+        <member name="T:ExpertLib.NX.BHRT.MaterialData">
+            <summary>
+            物料编码类
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.NXFunction">
+            <summary>
+            常用函数库
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.FenTi">
+            <summary>
+            分体式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.ZhengTi">
+            <summary>
+            整体式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.BanZhengTi">
+            <summary>
+            半整体式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.ZhenFa">
+            <summary>
+            针阀式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.KaiFang">
+            <summary>
+            开放式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.DanPen">
+            <summary>
+            单喷
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.XiTong">
+            <summary>
+            系统
+            </summary>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.MapPoint2WCS(NXOpen.Point3d)">
             <summary>
             绝对坐标点转换到工作坐标点
