@@ -2,6 +2,7 @@ using System;
 using NXOpen;
 using NXOpen.BlockStyler;
 using System.Collections.Generic;
+using ExpertLib.NX.BHRT;
 
 public class QuickDesign
 {

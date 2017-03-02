@@ -27,6 +27,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BHRTLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Application\BHRTLib.dll</HintPath>
+    </Reference>
     <Reference Include="NXOpen, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(UGII_ROOT_DIR)\managed\NXOpen.dll</HintPath>
@@ -53,20 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\DataControl.cs">
-      <Link>DataControl.cs</Link>
-    </Compile>
-    <Compile Include="..\..\ManifoldInfo.cs">
-      <Link>Model\ManifoldInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\..\NXFunction.cs">
-      <Link>NXFunction.cs</Link>
-    </Compile>
-    <Compile Include="..\..\RunnerInsert.cs">
-      <Link>Model\RunnerInsert.cs</Link>
-    </Compile>
-    <Compile Include="Model\Cylinder.cs" />
-    <Compile Include="Model\Heater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
