@@ -331,43 +331,50 @@
             总长度
             </summary>
         </member>
-        <member name="T:ExpertLib.NX.BHRT.WireFrame">
+        <member name="T:ExpertLib.NX.BHRT.WireFrameBuilder">
             <summary>
             线架生成器
             </summary>
         </member>
-        <member name="F:ExpertLib.NX.BHRT.WireFrame.wire_segments">
+        <member name="F:ExpertLib.NX.BHRT.WireFrameBuilder.wire_segments">
             <summary>
             所有线架线段
             </summary>
         </member>
-        <member name="F:ExpertLib.NX.BHRT.WireFrame.wire_lines">
+        <member name="F:ExpertLib.NX.BHRT.WireFrameBuilder.wire_lines">
             <summary>
             所有线架
             </summary>
         </member>
-        <member name="M:ExpertLib.NX.BHRT.WireFrame.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
             <summary>
             构造函数
             </summary>
             <param name="manifold">分流板信息</param>
         </member>
-        <member name="M:ExpertLib.NX.BHRT.WireFrame.Commit">
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.Commit">
             <summary>
             生成的具体实现
             </summary>
         </member>
-        <member name="M:ExpertLib.NX.BHRT.WireFrame.GetSegments">
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.GetSegments">
             <summary>
             线架中心线的线段集合
             </summary>
             <returns></returns>
         </member>
-        <member name="M:ExpertLib.NX.BHRT.WireFrame.GetWireLines">
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.GetWireLines">
             <summary>
             得到完整线架的集合
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.CreateWireLine(ExpertLib.NX.BHRT.WireLine,System.Int32)">
+            <summary>
+            Create
+            </summary>
+            <param name="wire_line"></param>
+            <param name="index"></param>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.MapPoint2WCS(NXOpen.Point3d)">
             <summary>
