@@ -819,6 +819,11 @@
             类型
             </summary>
         </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.InstallType">
+            <summary>
+            安装方式,在构造函数中赋值
+            </summary>
+        </member>
         <member name="P:ExpertLib.NX.BHRT.NozzleInfo.IsValve">
             <summary>
             
@@ -829,7 +834,7 @@
             实体名称
             </summary>
         </member>
-        <member name="M:ExpertLib.NX.BHRT.NozzleInfo.#ctor(System.Int32,System.Int32,NXOpen.Point3d,System.Double)">
+        <member name="M:ExpertLib.NX.BHRT.NozzleInfo.#ctor(System.Int32,System.Int32,System.String,NXOpen.Point3d,System.Double)">
             <summary>
             单喷
             </summary>
@@ -1339,7 +1344,7 @@
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.SetBOMAttri(NXOpen.Body,ExpertLib.NX.BHRT.MaterialData)">
             <summary>
-            给Body添加BOM属性
+            给Body添加BOM属性,如果已有相同名称的物料项，则加上序号
             </summary>
             <param name="body"></param>
             <param name="data"></param>
