@@ -1749,6 +1749,12 @@
             测量面和向量夹角
             </summary>
         </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveParameters(NXOpen.Body)">
+            <summary>
+            移除参数
+            </summary>
+            <param name="body"></param>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateImage">
             <summary>
             截图
