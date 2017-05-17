@@ -157,7 +157,7 @@ public class QuickDesign
             ManifoldInfo manifold = GetUserInput();
             
             NXFunction.SetLayers();
-
+            theUI.NXMessageBox.Show("DDDD",NXMessageBox.DialogType.Information,"DD");
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
             builder.Submit();
 
@@ -179,9 +179,9 @@ public class QuickDesign
             //GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder(manifold);
             //generalPartBuilder.Submit();
 
-            ////气缸油缸
-            //NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
-            //cylinderBuilder.Submit();
+            //气缸油缸
+            NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
+            cylinderBuilder.Submit();
 
             ////流道
             //builder.CreateRunner();

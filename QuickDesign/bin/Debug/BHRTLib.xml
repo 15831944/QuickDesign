@@ -1364,9 +1364,30 @@
             <param name="sql"></param>
             <param name="assemblyID"></param>
         </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveOriginCode(NXOpen.Body)">
+            <summary>
+            移除原有所有和物料编码有关的属性
+            </summary>
+            <param name="body"></param>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBOMAttri(NXOpen.Body)">
             <summary>
-            data.name不赋值，因为name可能因为重复而加上了序号
+            通过标准的BOM属性得到物料信息
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBOMByAssemblyID(NXOpen.Body,ExpertLib.NX.BHRT.DataControl)">
+            <summary>
+            通过实体的assembly_id信息获取物料信息
+            </summary>
+            <param name="body"></param>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBOMByOldStyle(NXOpen.Body)">
+            <summary>
+            获取BOM属性，按照很古老的形式和用户自己整的不规范数据
             </summary>
             <param name="body"></param>
             <returns></returns>
@@ -1439,6 +1460,13 @@
             删除所有物料编码型的属性
             </summary>
             <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.DeleteAttribute(NXOpen.Body,System.String)">
+            <summary>
+            删除属性
+            </summary>
+            <param name="body"></param>
+            <param name="title"></param>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.SetLayers">
             <summary>
@@ -1649,6 +1677,23 @@
             <param name="Angle">旋转角度</param>
             <param name="L">长度属性小于0则忽略</param>
         </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.NumberingPart(NXOpen.Body,System.Int32,NXOpen.Point3d,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="index"></param>
+            <param name="point_part"></param>
+            <param name="Angle"></param>
+            <param name="L"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.NumberingPart(NXOpen.Body,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="index"></param>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.DeleteBody(System.String)">
             <summary>
             删除名称完成一致的实体
@@ -1749,11 +1794,32 @@
             测量面和向量夹角
             </summary>
         </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.BodyBounding(NXOpen.Body,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            获得最大包络尺寸（方形的）
+            </summary>
+            <param name="body"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveParameters(NXOpen.Body)">
             <summary>
             移除参数
             </summary>
             <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveParameters(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name_part"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveMultiParameters(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="prefix"></param>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateImage">
             <summary>
