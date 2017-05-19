@@ -157,42 +157,42 @@ public class QuickDesign
             ManifoldInfo manifold = GetUserInput();
             
             NXFunction.SetLayers();
-            theUI.NXMessageBox.Show("DDDD",NXMessageBox.DialogType.Information,"DD");
+            
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
             builder.Submit();
 
-            //ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
-            //boltBuilder.Submit();
+            ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
+            boltBuilder.Submit();
 
-            //HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
-            //heaterBuilder.Submit();
+            HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
+            heaterBuilder.Submit();
 
-            //new InletBushingBuilder(sql, manifold).Submit();
-            //new CentrePinBuilder(sql, manifold).Submit();
-            //new DowelPinBuilder(sql, manifold).Submit();
-            //new TCBuilder(sql, manifold).Submit();
-            //new InsulatorBuilder(sql, manifold).Submit();
+            new InletBushingBuilder(sql, manifold).Submit();
+            new CentrePinBuilder(sql, manifold).Submit();
+            new DowelPinBuilder(sql, manifold).Submit();
+            new TCBuilder(sql, manifold).Submit();
+            new InsulatorBuilder(sql, manifold).Submit();
 
-            //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
-            //runnerInsertBuilder.Submit();
+            RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
+            runnerInsertBuilder.Submit();
 
-            //GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder(manifold);
-            //generalPartBuilder.Submit();
+            GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder(manifold);
+            generalPartBuilder.Submit();
 
             //气缸油缸
             NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
             cylinderBuilder.Submit();
 
-            ////流道
-            //builder.CreateRunner();
+            //流道
+            builder.CreateRunner();
 
-            ////线架
-            //WireFrameBuilder wireFrame = new WireFrameBuilder(manifold);
-            //wireFrame.Submit();
+            //线架
+            WireFrameBuilder wireFrame = new WireFrameBuilder(manifold);
+            wireFrame.Submit();
 
-            ////隐藏假体
-            //List<Body> bodies = NXFunction.GetBodiesByName("SUB");
-            //bodies.MoveBodies2Layer(42);
+            //隐藏假体
+            List<Body> bodies = NXFunction.GetBodiesByName("SUB");
+            bodies.MoveBodies2Layer(42);
         }
         catch (Exception ex)
         {

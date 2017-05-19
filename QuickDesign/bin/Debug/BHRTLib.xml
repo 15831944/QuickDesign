@@ -209,7 +209,7 @@
         </member>
         <member name="M:ExpertLib.NX.BHRT.DataControl.CylinderBlock">
             <summary>
-            nozzle,cylinder 编号从1开始
+            cylinder 编号从1开始
             </summary>
             <returns></returns>
         </member>
@@ -311,12 +311,7 @@
             TODO 属性直接弄出来
             </summary>
         </member>
-        <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.ImportSplitCylinder(ExpertLib.NX.BHRT.Block)">
-            <summary>
-            分体式气缸/油缸
-            </summary>
-            <param name="block"></param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.ImportSplitCylinder(ExpertLib.NX.BHRT.Block)" -->
         <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.GetRunnerDir(ExpertLib.NX.BHRT.Block)">
             <summary>
             气缸所在流道的方向
@@ -324,11 +319,18 @@
             <param name="block"></param>
             <returns></returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.UpdateFixedBlock(System.String)" -->
         <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.ImportManifoldCylinder(ExpertLib.NX.BHRT.Block)">
             <summary>
             整体式气缸油缸
             </summary>
             <param name="block"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.InsertBOMAttri(System.String)">
+            <summary>
+            加上物料编码
+            </summary>
+            此时实体还没有编号
         </member>
         <member name="T:ExpertLib.NX.BHRT.HeaterBuilder">
             <summary>
@@ -529,6 +531,16 @@
         <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.IsSingleValve">
             <summary>
             是否式单喷
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.ManifoldInfo.SlotHUp">
+            <summary>
+            出线槽高度
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.ManifoldInfo.SlotHDown">
+            <summary>
+            出线槽高度
             </summary>
         </member>
         <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.SR">
@@ -1046,7 +1058,7 @@
         </member>
         <member name="T:ExpertLib.NX.BHRT.WireFrameBuilder">
             <summary>
-            线架生成器
+            线架:要求图块名称必须为"高度X宽度"如40X60,40X80
             </summary>
         </member>
         <member name="F:ExpertLib.NX.BHRT.WireFrameBuilder.wire_segments">
@@ -1087,7 +1099,8 @@
             Create
             </summary>
             <param name="wire_line"></param>
-            <param name="index"></param>
+            <param name="index"></param> 
+            下表面和分流板下表面平齐
         </member>
         <member name="T:ExpertLib.NX.BHRT.MaterialData">
             <summary>
@@ -1719,6 +1732,13 @@
             <param name="displayobjects"></param>
             <param name="color"></param>
         </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetColor(NXOpen.Body,System.Int32)">
+            <summary>
+            Color
+            </summary>
+            <param name="body"></param>
+            <param name="color"></param>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.HideBodies(System.Collections.Generic.List{NXOpen.Body},System.Int32)">
             <summary>
             隐藏/显示实体
@@ -1765,13 +1785,30 @@
             <param name="dir_target"></param>
             <param name="o"></param>
         </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MoveFace(NXOpen.Face,NXOpen.Vector3d,System.Double)">
+            <summary>
+            移动面
+            </summary>
+            <param name="face"></param>
+            <param name="dir"></param>
+            <param name="value"></param>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasureFace2Face(NXOpen.Face,NXOpen.Face,System.Int32)">
             <summary>
-            
+            测量距离
             </summary>
             <param name="face1"></param>
             <param name="face2"></param>
-            <param name="is_projection"></param>
+            <param name="is_projection">1:X,2:Y,3:Z</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasureFace2Plane(NXOpen.Plane,NXOpen.Face,System.Int32)">
+            <summary>
+            测量距离
+            </summary>
+            <param name="p1"></param>
+            <param name="face"></param>
+            <param name="is_projection">1:X,2:Y,3:Z</param>
             <returns></returns>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasureCylindricalFaceDiameter(NXOpen.Face)">
