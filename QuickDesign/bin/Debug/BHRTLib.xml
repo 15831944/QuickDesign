@@ -773,7 +773,7 @@
         </member>
         <member name="M:ExpertLib.NX.BHRT.NozzleFactory.ReplaceValve">
             <summary>
-            保存阀针的物料编码到Nozzle中，一定要在ReplaceTip之后
+            保存阀针的物料编码到阀针中，一定要在ReplaceTip之后
             </summary>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NozzleFactory.ReplaceJacket">
@@ -844,6 +844,11 @@
         <member name="P:ExpertLib.NX.BHRT.NozzleInfo.BodyName">
             <summary>
             实体名称
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.Heater1">
+            <summary>
+            第一段加热长度
             </summary>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NozzleInfo.#ctor(System.Int32,System.Int32,System.String,NXOpen.Point3d,System.Double)">
@@ -1362,6 +1367,16 @@
             <param name="body"></param>
             <param name="data"></param>
         </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.AddBOMAttri(NXOpen.Body,System.String,System.String,System.Int32,ExpertLib.NX.BHRT.DataControl)">
+            <summary>
+            根据物料编码添加BOM属性
+            </summary>
+            <param name="body"></param>
+            <param name="materialName">如果为null则从数据库中读取</param>
+            <param name="code"></param>
+            <param name="num"></param>
+            <param name="sql"></param>
+        </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.SetBOMAttriByUnknownAssemblyID(NXOpen.Body,ExpertLib.NX.BHRT.DataControl)">
             <summary>
             会先删除原有物料编码属性,assembly_id在实体属性中,然后删除assembly_id
@@ -1371,11 +1386,21 @@
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.SetBOMAttriByAssemblyID(NXOpen.Body,ExpertLib.NX.BHRT.DataControl,System.String)">
             <summary>
-            添加BOM属性
+            添加BOM属性,并删除以前的所有物料属性
             </summary>
             <param name="body"></param>
             <param name="sql"></param>
             <param name="assemblyID"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetAndSetAttri(NXOpen.Body,System.String,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="materialName"></param>
+            <param name="code"></param>
+            <param name="num"></param>
+            <returns></returns>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveOriginCode(NXOpen.Body)">
             <summary>
@@ -1450,16 +1475,6 @@
             <param name="category"></param>
             <param name="title"></param>
             <param name="value"></param>
-        </member>
-        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetAndSetAttri(NXOpen.Body,System.String,System.String,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="body"></param>
-            <param name="materialName"></param>
-            <param name="code"></param>
-            <param name="num"></param>
-            <returns></returns>
         </member>
         <member name="M:ExpertLib.NX.BHRT.NXFunction.CodyAttribute(NXOpen.Body,NXOpen.Body)">
             <summary>

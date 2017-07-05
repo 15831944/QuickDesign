@@ -161,30 +161,30 @@ public class QuickDesign
             ManifoldBuilder builder = new ManifoldBuilder(manifold);
             builder.Submit();
 
-            //ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
-            //boltBuilder.Submit();
+            ManifoldBoltBuilder boltBuilder = new ManifoldBoltBuilder(manifold);
+            boltBuilder.Submit();
 
-            //HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
-            //heaterBuilder.Submit();
+            HeaterBuilder heaterBuilder = new HeaterBuilder(manifold);
+            heaterBuilder.Submit();
 
-            //new InletBushingBuilder(sql, manifold).Submit();
-            //new CentrePinBuilder(sql, manifold).Submit();
-            //new DowelPinBuilder(sql, manifold).Submit();
-            //new TCBuilder(sql, manifold).Submit();
-            //new InsulatorBuilder(sql, manifold).Submit();
+            new InletBushingBuilder(sql, manifold).Submit();
+            new CentrePinBuilder(sql, manifold).Submit();
+            new DowelPinBuilder(sql, manifold).Submit();
+            new TCBuilder(sql, manifold).Submit();
+            new InsulatorBuilder(sql, manifold).Submit();
 
-            //RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
-            //runnerInsertBuilder.Submit();
+            RunnerInsertBuilder runnerInsertBuilder = new RunnerInsertBuilder(manifold);
+            runnerInsertBuilder.Submit();
 
-            //GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder(manifold);
-            //generalPartBuilder.Submit();
+            GeneralPartBuilder generalPartBuilder = new GeneralPartBuilder(manifold);
+            generalPartBuilder.Submit();
 
-            ////气缸油缸
-            //NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
-            //cylinderBuilder.Submit();
+            //气缸油缸
+            NozzleCylinderBuilder cylinderBuilder = new NozzleCylinderBuilder(manifold, is_rebulid);
+            cylinderBuilder.Submit();
 
-            ////流道
-            //builder.CreateRunner();
+            //流道
+            builder.CreateRunner();
 
             //线架
             WireFrameBuilder wireFrame = new WireFrameBuilder(manifold);

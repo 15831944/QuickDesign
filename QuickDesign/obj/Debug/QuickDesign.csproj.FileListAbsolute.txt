@@ -5,7 +5,6 @@ D:\CODE\code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.dll
 D:\CODE\code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.pdb
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.dll
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\QuickDesign.pdb
-D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.csprojResolveAssemblyReference.cache
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.dll
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.pdb
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.Properties.Resources.resources
@@ -20,3 +19,4 @@ D:\0_CAD\UG\0_Project\IMS\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.pdb
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\BHRTLib.pdb
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\BHRTLib.xml
 D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\bin\Debug\BHRTLib.dll
+D:\0_CAD\UG\0_Project\BHRT\Code\QuickDesign\QuickDesign\obj\Debug\QuickDesign.csprojResolveAssemblyReference.cache
