@@ -1,0 +1,1978 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BHRTLib</name>
+    </assembly>
+    <members>
+        <member name="T:ExpertLib.NX.BHRT.DataControl">
+            <summary>
+            数据库链接
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.DataControl.strCon">
+            <summary>
+            链接字符串
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.DataControl.InstallPath">
+            <summary>
+            环境变量-项目地址
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.DataControl.PartBase">
+            <summary>
+            标准件库所在
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.DataControl.hostName">
+            <summary>
+            电脑名
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.ExecSqlFile(System.String)">
+            <summary>
+            执行脚本文件
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.DataSelectGetSet(System.String)">
+            <summary>
+            查询获得数据集合
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetExpr1AsInt(System.String)">
+            <summary>
+            GetExpr1AsInt
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetExpr1AsInt(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="strSql"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetExpr1AsString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetExpr1AsString(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strSql"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetExpr1AsDouble(System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="strSql"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.dataExec(System.String)">
+            <summary>
+            执行没有返回的数据库操作
+            </summary>
+            <param name="strSql">语句</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.DataTable2SqlServer(System.Data.DataTable,System.String)">
+            <summary>
+            DataTable导入数据库目标表，包括DataTable的所有列
+            </summary>
+            <param name="dt">数据源</param>
+            <param name="targetTableName">目标表名称</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.DataTable2SqlServer(System.Data.DataTable,System.String,System.String[],System.String[])">
+            <summary>
+            DataTable导入数据库目标表
+            </summary>
+            <param name="dt"></param>
+            <param name="targetTableName"></param>
+            <param name="sourceCols">dt中列名</param>
+            <param name="targetCols">目标表中的列名</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.DataTable2TempStandardTable(System.Data.DataTable,System.String)">
+            <summary>
+            将dt导入到和standard_table结构完全相同的表中
+            </summary>
+            <param name="dt"></param>
+            <param name="temp_table_name">临时表的名称</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.DropColumn(System.String,System.String)">
+            <summary>
+            删除列
+            </summary>
+            <param name="table"></param>
+            <param name="column"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.AddColumn(System.String,System.String,System.String,System.String)">
+            <summary>
+            添加列
+            </summary>
+            <param name="table"></param>
+            <param name="column"></param>
+            <param name="type"></param>
+            <param name="default_value"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.SetProcessStatus(System.String,System.String,System.Int32)">
+            <summary>
+            改变OA_Status_table
+            </summary>
+            <param name="order_id"></param>
+            <param name="process_id"></param>
+            <param name="status">0:开始;   1:完成;    -1:未开始或退回</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.BulkToDB(System.Data.DataTable,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dt"></param>
+            <param name="strTableName"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetTable_sharepart">
+            <summary>
+            备件表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetTable_sendpart">
+            <summary>
+            送货表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.dataDelete(System.String,System.String,System.Int32)">
+            <summary>
+            数据表删除函数
+            </summary>
+            <param name="strtablename">表名</param>
+            <param name="strwhere">修改条件</param>
+            <param name="intk">删除条件是否起作用intk=0，查询条件不起作用，intk=1删除条件起作用</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.Convert2Set(System.Data.DataTable,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dt"></param>
+            <param name="rowName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetFilePath(System.String)">
+            <summary>
+            标准件库文件夹名称
+            </summary>
+            <param name="assemblyID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetFilePath(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assemblyID"></param>
+            <param name="series"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetSeries">
+            <summary>
+            得到系列通过Nozzle-X
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.NozzleBlock">
+            <summary>
+            nozzle,cylinder 编号从1开始
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetCylinderBlock(ExpertLib.NX.BHRT.Block)">
+            <summary>
+            
+            </summary>
+            <param name="nozzle_block"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.CylinderBlock">
+            <summary>
+            cylinder 编号从1开始
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetBlockByPrefix(System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="prefix"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetBlocksByAssemblyName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="assemblyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DataControl.GetOtherBlock">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.Block">
+            <summary>
+            图块
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.sql">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.index">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.file_path">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.assembly_id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.assembly_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.component_name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.Angle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.X">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.Y">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.Block.Z">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.Block.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.NozzleCylinderBuilder">
+            <summary>
+            分流板上的气缸\油缸和默认热嘴
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manifold"></param>
+            <param name="is_rebulid"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.Commit">
+            <summary>
+            TODO 属性直接弄出来
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.ImportSplitCylinder(ExpertLib.NX.BHRT.Block)" -->
+        <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.GetRunnerDir(ExpertLib.NX.BHRT.Block)">
+            <summary>
+            气缸所在流道的方向
+            </summary>
+            <param name="block"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.UpdateFixedBlock(System.String)" -->
+        <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.ImportManifoldCylinder(ExpertLib.NX.BHRT.Block)">
+            <summary>
+            整体式气缸油缸
+            </summary>
+            <param name="block"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleCylinderBuilder.InsertBOMAttri(System.String)">
+            <summary>
+            加上物料编码
+            </summary>
+            此时实体还没有编号
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.HeaterBuilder">
+            <summary>
+            盘条生成
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.GetHeaterLine(NXOpen.Curve)">
+            <summary>
+            根据一条直线，从两端搜索，获得一条完整的发热管中心线
+            </summary>
+            <param name="aline"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.CreateTube(System.Int32,ExpertLib.NX.BHRT.HeaterLine,System.Double,System.Double,System.Double)">
+            <summary>
+            生成发热管实体 插入属性 命名 移动
+            </summary>
+            <param name="index"></param>
+            <param name="heater_line"></param>
+            <param name="outer_D"></param>
+            <param name="innner_D"></param>
+            <param name="Z"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.SaveCode2Tube(NXOpen.Body,System.Int32,System.Double)">
+            <summary>
+            物料编码
+            </summary>
+            <param name="body"></param>
+            <param name="curve_index"></param>
+            <param name="length"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.CreateBox(NXOpen.Body,System.Int32,NXOpen.Vector3d,ExpertLib.NX.BHRT.HeaterLine,System.Double)">
+            <summary>
+            生成上层陶瓷接线盒，并和管道合并
+            </summary>
+            <param name="tube"></param>
+            <param name="curve_index"></param>
+            <param name="dir"></param>
+            <param name="heater_line"></param>
+            <param name="Z"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.CreateText(System.Int32,ExpertLib.NX.BHRT.HeaterLine)">
+            <summary>
+            创建文字
+            </summary>
+            <param name="index"></param>
+            <param name="heater_line"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterBuilder.Crave">
+            <summary>
+            刻字
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.HeaterSegment">
+            <summary>
+            发热管线段
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterSegment.curve">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterSegment.p1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterSegment.p2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterSegment.added">
+            <summary>
+            是否已经被添加到集合
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterSegment.type">
+            <summary>
+            1——spline 2——arc圆弧 3——line  4——arc整圆
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterSegment.dir">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.HeaterSegment.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.HeaterLine">
+            <summary>
+            一条完整的加热线中心线
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.curves">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.start_point">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.end_point">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.other_point">
+            <summary>
+            盘条首尾两条线上，除了起点终点以外的第三个点。用来确定方向
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.orderPoint">
+            <summary>
+            用来排序的点
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.other">
+            <summary>
+            1-end point,2-start point
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.length">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.HeaterLine.dir">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.BaseBuilder">
+            <summary>
+            组件生成虚拟类
+            此类仅实现了Submit方法用于提交到NX中运行，Submit先关闭NX显示更新，然后Commit，最后恢复NX显示
+            所以组件的具体实现方法是在子类中实现Commit方法
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.BaseBuilder.Submit">
+            <summary>
+            显示/恢复UG更新，Commit实现
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.BaseBuilder.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.ManifoldBuilder">
+            <summary>
+            分流板生成类
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.ManifoldBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.ManifoldBuilder.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.ManifoldBuilder.CreateRunner">
+            <summary>
+            流道，QD的最后
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.ManifoldInfo">
+            <summary>
+            分流板数据
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.IsSingleValve">
+            <summary>
+            是否式单喷
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.ManifoldInfo.SlotHUp">
+            <summary>
+            出线槽高度
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.ManifoldInfo.SlotHDown">
+            <summary>
+            出线槽高度
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.SR">
+            <summary>
+            主射嘴球面半径
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.SeriesNum">
+            <summary>
+            系列
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.RunnerDiameter">
+            <summary>
+            流道直径
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.ManifoldH">
+            <summary>
+            分流板厚度
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.RunnerOffset">
+            <summary>
+            流道偏心 Z+方向
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.TopH">
+            <summary>
+            上避空
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.BottomH">
+            <summary>
+            下避空
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.CylinderH">
+            <summary>
+            面板高度
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.ManifoldInfo.InstallType">
+            <summary>
+            安装方式
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.ManifoldInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.ManifoldInfo.SetSeriesNum(System.Int32)">
+            <summary>
+            强行设置系列，慎重使用
+            </summary>
+            <param name="series"></param>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.ManifoldBoltBuilder">
+            <summary>
+            分流板固定螺丝
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.ManifoldBoltBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            分流板固定螺丝
+            </summary>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.ManifoldBoltBuilder.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.GeneralPartBuilder">
+            <summary>
+            一般零件
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.GeneralPartBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.GeneralPartBuilder.Commit">
+            <summary>
+            生成
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.GeneralPartBuilder.Commit(System.String,System.Double)">
+            <summary>
+            单个生成
+            </summary>
+            <param name="prefixName"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.GeneralPartBuilder.CommitOther">
+            <summary>
+            生成其他
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.InletBushingBuilder">
+            <summary>
+            主射嘴
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.InletBushingBuilder.#ctor(ExpertLib.NX.BHRT.DataControl,ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sql"></param>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.InletBushingBuilder.Commit">
+            <summary>
+            生成
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.CentrePinBuilder">
+            <summary>
+            中心定位柱
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.CentrePinBuilder.#ctor(ExpertLib.NX.BHRT.DataControl,ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sql"></param>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.CentrePinBuilder.Commit">
+            <summary>
+            生成
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.DowelPinBuilder">
+            <summary>
+            定位销
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DowelPinBuilder.#ctor(ExpertLib.NX.BHRT.DataControl,ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sql"></param>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.DowelPinBuilder.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.TCBuilder">
+            <summary>
+            分流板热电偶
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.TCBuilder.#ctor(ExpertLib.NX.BHRT.DataControl,ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sql"></param>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.TCBuilder.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.InsulatorBuilder">
+            <summary>
+            主射嘴
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.InsulatorBuilder.#ctor(ExpertLib.NX.BHRT.DataControl,ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="sql"></param>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.InsulatorBuilder.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.NozzleFactory">
+            <summary>
+            热嘴生成工厂类
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.#ctor(ExpertLib.NX.BHRT.NozzleInfo,ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="nozzleInfo"></param>
+            <param name="maniInfo"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.Commit">
+            <summary>
+            实现
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.CommitSystemNozzle">
+            <summary>
+            实现系统中的热嘴
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.GetRunnerDir">
+            <summary>
+            得到热嘴所在流道的方向
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.ReplaceNozzle">
+            <summary>
+            替换热嘴本体 及其假体
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.ReplaceRing">
+            <summary>
+            替换定位环
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.ReplaceTip">
+            <summary>
+            替换嘴头及其假体
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.ReplaceValve">
+            <summary>
+            保存阀针的物料编码到阀针中，一定要在ReplaceTip之后
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.ReplaceJacket">
+            <summary>
+            替换水套及其假体
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.CreateNozzleRunner">
+            <summary>
+            逐个生成热嘴流道->热嘴和定位环
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.InsertSingleNozzle">
+            <summary>
+            单喷插入
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.InsertLocatingRing">
+            <summary>
+            插入定位环并调整流道大小
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.CreateSingleNozzleRunner">
+            <summary>
+            生成热嘴的流道-不包括定位环
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleFactory.CommitSingleNozzle">
+            <summary>
+            单喷替换
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.NozzleInfo">
+            <summary>
+            热嘴信息类
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleInfo.sql">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleInfo.rule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.Series">
+            <summary>
+            系列
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.InstallType">
+            <summary>
+            安装方式,在构造函数中赋值
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.IsValve">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.BodyName">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.NozzleInfo.Heater1">
+            <summary>
+            第一段加热长度
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleInfo.#ctor(System.Int32,System.Int32,System.String,NXOpen.Point3d,System.Double)">
+            <summary>
+            单喷
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleInfo.SetAllHeaters">
+            <summary>
+            一次性设置所有加热器
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleInfo.auto_F_2block">
+            <summary>
+            非标情况下两段或一段加热的F计算 
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleInfo.auto_F_3block">
+            <summary>
+            非标情况下三段加热的F计算 
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleInfo.Add_F(System.Double)">
+            <summary>
+            F增加一个规格
+            </summary>
+            <param name="F">原有长度</param>
+            <returns>增加后的长度</returns>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.NozzleRule">
+            <summary>
+            热嘴规则
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.thermalExpansionCoefficient">
+            <summary>
+            热膨胀系数
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.a">
+            <summary>
+            a
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.b">
+            <summary>
+            b
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.c">
+            <summary>
+            c
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.d">
+            <summary>
+            d
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.e">
+            <summary>
+            e
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.f">
+            <summary>
+            f
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.g">
+            <summary>
+            f
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.bodyMargin">
+            <summary>
+            加工余量
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.valveDiameter">
+            <summary>
+            阀针直径
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.E1Prefix">
+            <summary>
+            外壳1 名词前缀
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.E2Prefix">
+            <summary>
+            外壳2 名词前缀
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.defaultH1">
+            <summary>
+            多段加热的时候默认支撑套1的高度
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.defaultE1">
+            <summary>
+            多段加热的时候默认外壳1的高度
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.safeT">
+            <summary>
+            热电偶安全距离
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NozzleRule.locatingRingE">
+            <summary>
+            多段加热的时候外壳定位环的高度
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NozzleRule.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="series"></param>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.RunnerInsertBuilder">
+            <summary>
+            流道镶件
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.RunnerInsertBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manifold"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.RunnerInsertBuilder.Commit">
+            <summary>
+            创建实体
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.RunnerInsertBuilder.GetLen(ExpertLib.NX.BHRT.EndPoint)">
+            <summary>
+            得到流道镶件长度
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.RunnerInsertBuilder.GetLenNormal(ExpertLib.NX.BHRT.EndPoint)">
+            <summary>
+            常规情况下镶件长度——有终点且是原点\热嘴点\流道交叉点
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.RunnerInsertBuilder.GetLenParallel(ExpertLib.NX.BHRT.EndPoint)">
+            <summary>
+            遍历平行的插入点
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.WireSegment">
+            <summary>
+            线架线段
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireSegment.line">
+            <summary>
+            线段
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireSegment.p1">
+            <summary>
+            起点
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireSegment.p2">
+            <summary>
+            终点
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireSegment.added">
+            <summary>
+            是否已经加入集合
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.WireLine">
+            <summary>
+            一条完整的线架
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireLine.lines">
+            <summary>
+            线段集合
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireLine.points">
+            <summary>
+            转角点，包括了最后一个端点
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireLine.sp">
+            <summary>
+            起点
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireLine.ep">
+            <summary>
+            终点
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireLine.length">
+            <summary>
+            总长度
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.WireFrameBuilder">
+            <summary>
+            线架:要求图块名称必须为"高度X宽度"如40X60,40X80
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireFrameBuilder.wire_segments">
+            <summary>
+            所有线架线段
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.WireFrameBuilder.wire_lines">
+            <summary>
+            所有线架
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.#ctor(ExpertLib.NX.BHRT.ManifoldInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="manifold">分流板信息</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.Commit">
+            <summary>
+            生成的具体实现
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.GetSegments">
+            <summary>
+            线架中心线的线段集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.GetWireLines">
+            <summary>
+            得到完整线架的集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.WireFrameBuilder.CreateWireLine(ExpertLib.NX.BHRT.WireLine,System.Int32)">
+            <summary>
+            Create
+            </summary>
+            <param name="wire_line"></param>
+            <param name="index"></param> 
+            下表面和分流板下表面平齐
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.MaterialData">
+            <summary>
+            物料编码类
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.MaterialData.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.MaterialData.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.code">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.specification">
+            <summary>
+            规格
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.num">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.material">
+            <summary>
+            材质
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.brand">
+            <summary>
+            品牌
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.ORI">
+            <summary>
+            ORI/STD
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.group_code">
+            <summary>
+            分群码 
+            M03 外购原材料
+            M05 外购标准件
+            M10 库存标准件
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.manufacture_type">
+            <summary>
+            加工方式
+            库标  非标 二次加工
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.feature_value">
+            <summary>
+            特征尺寸
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.data_source">
+            <summary>
+            实体名
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.MaterialData.attri_name">
+            <summary>
+            属性名
+            </summary>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.NXFunction">
+            <summary>
+            常用函数库
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.FenTi">
+            <summary>
+            分体式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.ZhengTi">
+            <summary>
+            整体式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.BanZhengTi">
+            <summary>
+            半整体式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.ZhenFa">
+            <summary>
+            针阀式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.KaiFang">
+            <summary>
+            开放式
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.DanPen">
+            <summary>
+            单喷
+            </summary>
+        </member>
+        <member name="F:ExpertLib.NX.BHRT.NXFunction.XiTong">
+            <summary>
+            系统
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MapPoint2WCS(NXOpen.Point3d)">
+            <summary>
+            绝对坐标点转换到工作坐标点
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MapPoint2ABS(NXOpen.Point3d)">
+            <summary>
+            工作坐标点转换到绝对坐标点
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MapVector2ABS(NXOpen.Vector3d)">
+            <summary>
+            工作坐标向量转换到绝对坐标向量点
+            </summary>
+            <param name="vec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.IsCurve(NXOpen.Curve,System.Int32)">
+            <summary>
+            判断曲线类型 过期 不要用了
+            </summary>
+            <param name="curve"></param>
+            <param name="int_type">1——spline 2——arc 3——line </param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.IsCurve(NXOpen.NXObject)">
+            <summary>
+            是否式曲线
+            </summary>
+            <param name="obj"></param>
+            <returns>LINE 1 ARC 2 SPLINE 3 不是曲线 -1</returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.IsCoinCide(NXOpen.Point3d,NXOpen.Point3d)">
+            <summary>
+            两点是否重合，误差0.01
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.IsP1inP2P3_Plus(NXOpen.Point3d,NXOpen.Point3d,NXOpen.Point3d)">
+            <summary>
+            p1是否在直线p2p3上，而且在线段P2P3内部 仅限2D X Y  
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.Distance3d(NXOpen.Point3d,NXOpen.Point3d)">
+            <summary>
+            3d距离
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.Distance2d(NXOpen.Point3d,NXOpen.Point3d)">
+            <summary>
+            2d距离
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.VectorUnitization(NXOpen.Vector3d)">
+            <summary>
+            向量单位化
+            </summary>
+            <param name="d1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.IsParallel(NXOpen.Vector3d,NXOpen.Vector3d)">
+            <summary>
+            判断向量是否平行
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <returns>1正向-1反向0不不平行</returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetSystemCode(System.String@,System.String@)">
+            <summary>
+            得到系统号
+            </summary>
+            <param name="systemCode"></param>
+            <param name="mouldCode"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CheckFileExist(System.String,System.String)">
+            <summary>
+            判断文件是否存在
+            </summary>
+            <param name="path_file">文件路径</param>
+            <param name="str_part_name">部件类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetFileName">
+            <summary>
+            得到文件名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetFeatureByName(System.String)">
+            <summary>
+            通过名称得到特征 TODO 危险！应该在Body下遍历
+            </summary>
+            <param name="featureName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MoveFaceByFeature(System.String,System.String,System.Double)">
+            <summary>
+            移动面特征 move_value = new - old
+            </summary>
+            <param name="feature_name"></param>
+            <param name="body_name"></param>
+            <param name="move_value"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MoveNozzleFaceByFeature(System.String,System.String,System.Double)">
+            <summary>
+            移动面特征 move_value = new - old
+            </summary>
+            <param name="featureName"></param>
+            <param name="bodyName"></param>
+            <param name="targetValue"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetBOMAttri(NXOpen.Body,ExpertLib.NX.BHRT.MaterialData)">
+            <summary>
+            给Body添加BOM属性,如果已有相同名称的物料项，则加上序号
+            </summary>
+            <param name="body"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.AddBOMAttri(NXOpen.Body,System.String,System.String,System.Int32,ExpertLib.NX.BHRT.DataControl)">
+            <summary>
+            根据物料编码添加BOM属性
+            </summary>
+            <param name="body"></param>
+            <param name="materialName">如果为null则从数据库中读取</param>
+            <param name="code"></param>
+            <param name="num"></param>
+            <param name="sql"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetBOMAttriByUnknownAssemblyID(NXOpen.Body,ExpertLib.NX.BHRT.DataControl)">
+            <summary>
+            会先删除原有物料编码属性,assembly_id在实体属性中,然后删除assembly_id
+            </summary>
+            <param name="body"></param>
+            <param name="sql"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetBOMAttriByAssemblyID(NXOpen.Body,ExpertLib.NX.BHRT.DataControl,System.String)">
+            <summary>
+            添加BOM属性,并删除以前的所有物料属性
+            </summary>
+            <param name="body"></param>
+            <param name="sql"></param>
+            <param name="assemblyID"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetAndSetAttri(NXOpen.Body,System.String,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="materialName"></param>
+            <param name="code"></param>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveOriginCode(NXOpen.Body)">
+            <summary>
+            移除原有所有和物料编码有关的属性
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBOMAttri(NXOpen.Body)">
+            <summary>
+            通过标准的BOM属性得到物料信息
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBOMByAssemblyID(NXOpen.Body,ExpertLib.NX.BHRT.DataControl)">
+            <summary>
+            通过实体的assembly_id信息获取物料信息
+            </summary>
+            <param name="body"></param>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBOMByOldStyle(NXOpen.Body)">
+            <summary>
+            获取BOM属性，按照很古老的形式和用户自己整的不规范数据
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetAttribute(NXOpen.Body,System.String,System.String)">
+            <summary>
+            获取属性
+            </summary>
+            <param name="body"></param>
+            <param name="title"></param>
+            <param name="default_value">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetOrCreateAttribute(NXOpen.Body,System.String,System.String,System.String)">
+            <summary>
+            获取属性，如果不存在则创建属性
+            </summary>
+            <param name="body"></param>
+            <param name="category">不要/不正确也能获取，用来插入默认值</param>
+            <param name="title"></param>
+            <param name="default_value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetDoubleAttribute(NXOpen.Body,System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="title"></param>
+            <param name="default_value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetAttribute(NXOpen.Body,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="category"></param>
+            <param name="title"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetAttribute(NXOpen.Body,System.String,System.String,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="category"></param>
+            <param name="title"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CodyAttribute(NXOpen.Body,NXOpen.Body)">
+            <summary>
+            复制属性
+            </summary>
+            <param name="target"></param>
+            <param name="source"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.DeleteCodeAttribute(NXOpen.Body)">
+            <summary>
+            删除所有物料编码型的属性
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.DeleteAttribute(NXOpen.Body,System.String)">
+            <summary>
+            删除属性
+            </summary>
+            <param name="body"></param>
+            <param name="title"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetLayers">
+            <summary>
+            设置40为工作图层，隐藏40 42以外的所有图层
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MoveBodies2Layer(System.Int32,System.Collections.Generic.List{NXOpen.Body})">
+            <summary>
+            移动实体到某图层
+            </summary>
+            <param name="layer_num">目标图层</param>
+            <param name="bodies">要移动的对象</param>
+            <returns>移动的数量</returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MoveBodies2Layer(System.Collections.Generic.List{NXOpen.Body},System.Int32)">
+            <summary>
+            移动N个实体到某个图层
+            </summary>
+            <param name="bodies"></param>
+            <param name="layer_num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.Move2Layer(NXOpen.Body,System.Int32)">
+            <summary>
+            移动实体到图层
+            </summary>
+            <param name="body"></param>
+            <param name="layer_num"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetLayerNum(System.String)">
+            <summary>
+            得到图层ID
+            </summary>
+            <param name="layerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.Layer2Section2(System.String,NXOpen.Section,System.Double@)">
+            <summary>
+            将图层中的所有内容加载为截面
+            </summary>
+            <param name="layer_name"></param>
+            <param name="section1"></param>
+            <param name="perimeter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.Sections2Section(NXOpen.SectionList,NXOpen.Section,System.Double@)">
+            <summary>
+            截面合并
+            </summary>
+            <param name="list"></param>
+            <param name="section1"></param>
+            <param name="perimeter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CheckBodyExist(System.String)">
+            <summary>
+            检查实体是否存在
+            </summary>
+            <param name="body_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBodiesByName(System.String)">
+            <summary>
+            通过实体名的前缀获得实体
+            </summary>
+            <param name="bodyName">名称前缀</param>
+            <returns>实体list</returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBodyByName(System.String)">
+            <summary>
+            获得实体
+            </summary>
+            <param name="bodyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetBodyByNXObject(NXOpen.NXObject)">
+            <summary>
+            获得实体
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.ImportAndRoation(System.String,NXOpen.Point3d,System.Double,System.Int32)">
+            <summary>
+            导入零件并旋转
+            </summary>
+            <param name="path_part">文件路径</param>
+            <param name="point_part">插入坐标(工作坐标)</param>
+            <param name="Angle">X方向旋转角度 弧度制</param>
+            <param name="int_dir">Z方向 1正向 -1反向</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.ImportAndRoation(System.String,NXOpen.Point3d,NXOpen.Vector3d)">
+            <summary>
+            导入零件，并将Z轴与目标向量对齐
+            </summary>
+            <param name="path_part"></param>
+            <param name="point_part"></param>
+            <param name="zTarget"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.ImportAndRoationY(System.String,NXOpen.Point3d,NXOpen.Vector3d,System.Int32)">
+            <summary>
+            导入零件，并将Y轴与目标向量对齐
+            </summary>
+            <param name="path_part"></param>
+            <param name="point_part"></param>
+            <param name="dir"></param>
+            <param name="int_dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MoveBodyByIncrement(NXOpen.Body,System.Double,System.Double,System.Double)">
+            <summary>
+            增量移动零件
+            </summary>
+            <param name="body"></param>
+            <param name="X"></param>
+            <param name="Y"></param>
+            <param name="Z"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CopyBodyByIncrement(NXOpen.Body,System.Double,System.Double,System.Double)">
+            <summary>
+            Copy
+            </summary>
+            <param name="body"></param>
+            <param name="X"></param>
+            <param name="Y"></param>
+            <param name="Z"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CopyBodyByIncrement(System.Collections.Generic.List{NXOpen.Body},System.Double,System.Double,System.Double)">
+            <summary>
+            Copy
+            </summary>
+            <param name="bodies"></param>
+            <param name="X"></param>
+            <param name="Y"></param>
+            <param name="Z"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CopyBodyP2P(NXOpen.Body,NXOpen.Point3d,NXOpen.Point3d,System.Int32)">
+            <summary>
+            点到点复制
+            </summary>
+            <param name="body"></param>
+            <param name="source"></param>
+            <param name="target"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RotatingPart(System.Double,NXOpen.Point3d,NXOpen.Body)">
+            <summary>
+            按角度旋转零件
+            </summary>
+            <param name="Angle">旋转角度 逆时针 与AutoCAD一致 360度：Angle=6.28</param>
+            <param name="point"></param>
+            <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RotatingPart(NXOpen.Vector3d,NXOpen.Vector3d,NXOpen.Point3d,NXOpen.Body)">
+            <summary>
+            按轴旋转零件
+            </summary>
+            <param name="dir_part"></param>
+            <param name="dir_target"></param>
+            <param name="point"></param>
+            <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MirrorBody(NXOpen.Body,System.Double)">
+            <summary>
+            镜像实体 镜像平面为XY平面+distance
+            </summary>
+            <param name="body"></param>
+            <param name="distance">镜像平面与XY平面的距离</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.UnitePart(System.String,System.String)">
+            <summary>
+            求和
+            </summary>
+            <param name="name_target">目标体名称</param>
+            <param name="name_tool">工具体名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SubPart(System.String,System.String)">
+            <summary>
+            求差
+            </summary>
+            <param name="name_target"></param>
+            <param name="name_tool"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SubPart(NXOpen.Body,System.Collections.Generic.List{NXOpen.Body})">
+            <summary>
+            多个求差
+            </summary>
+            <param name="target"></param>
+            <param name="tools"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.UnitePart(NXOpen.Body,System.Collections.Generic.List{NXOpen.Body})">
+            <summary>
+            多个求和
+            </summary>
+            <param name="target"></param>
+            <param name="tools"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.NumberingPart(System.Int32,System.String,NXOpen.Point3d,System.Double,System.Double)">
+            <summary>
+            编号,将坐标和角度保存到属性
+            </summary>
+            <param name="index"></param>
+            <param name="name_part"></param>
+            <param name="point_part">插入坐标</param>
+            <param name="Angle">旋转角度</param>
+            <param name="L">长度属性小于0则忽略</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.NumberingPart(NXOpen.Body,System.Int32,NXOpen.Point3d,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="index"></param>
+            <param name="point_part"></param>
+            <param name="Angle"></param>
+            <param name="L"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.NumberingPart(NXOpen.Body,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="body"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.DeleteBody(System.String)">
+            <summary>
+            删除名称完成一致的实体
+            </summary>
+            <param name="bodyName">名称</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.DeleteBody(NXOpen.Body)">
+            <summary>
+            删除实体
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.DeleteBodies(System.String)">
+            <summary>
+            删除实体
+            </summary>
+            <param name="bodyName"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetColor(NXOpen.DisplayableObject[],System.Int32)">
+            <summary>
+            设置颜色
+            </summary>
+            <param name="displayobjects"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.SetColor(NXOpen.Body,System.Int32)">
+            <summary>
+            Color
+            </summary>
+            <param name="body"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.HideBodies(System.Collections.Generic.List{NXOpen.Body},System.Int32)">
+            <summary>
+            隐藏/显示实体
+            </summary>
+            <param name="bodies">实体列表</param>
+            <param name="is_hide">==1 隐藏 else显示</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.HideBody(System.String,System.Int32)">
+            <summary>
+            隐藏显示实体
+            </summary>
+            <param name="bodyName"></param>
+            <param name="is_hide"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetFace(NXOpen.Body,NXOpen.Point3d,NXOpen.Vector3d)">
+            <summary>
+            获得body中符合条件的平面
+            </summary>
+            <param name="body">目标实体</param>
+            <param name="p">点位</param>
+            <param name="vec">向量</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.ResizeFace(NXOpen.Face,System.Double)">
+            <summary>
+            调整面大小
+            </summary>
+            <param name="face"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.GetFaceVertex(NXOpen.Face)">
+            <summary>
+            得到面的顶点
+            </summary>
+            <param name="face"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RotateFace(NXOpen.Face,NXOpen.Vector3d,NXOpen.Vector3d,NXOpen.Point3d)">
+            <summary>
+            旋转面
+            </summary>
+            <param name="face"></param>
+            <param name="dir_face"></param>
+            <param name="dir_target"></param>
+            <param name="o"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MoveFace(NXOpen.Face,NXOpen.Vector3d,System.Double)">
+            <summary>
+            移动面
+            </summary>
+            <param name="face"></param>
+            <param name="dir"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasureFace2Face(NXOpen.Face,NXOpen.Face,System.Int32)">
+            <summary>
+            测量距离
+            </summary>
+            <param name="face1"></param>
+            <param name="face2"></param>
+            <param name="is_projection">1:X,2:Y,3:Z</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasureFace2Plane(NXOpen.Plane,NXOpen.Face,System.Int32)">
+            <summary>
+            测量距离
+            </summary>
+            <param name="p1"></param>
+            <param name="face"></param>
+            <param name="is_projection">1:X,2:Y,3:Z</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasureCylindricalFaceDiameter(NXOpen.Face)">
+            <summary>
+            
+            </summary>
+            <param name="face"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasurePoint2Face(NXOpen.Point3d,NXOpen.Face)">
+            <summary>
+            
+            </summary>
+            <param name="p"></param>
+            <param name="face"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.MeasureAngleFace2Axis(NXOpen.Face,NXOpen.Vector3d)">
+            <summary>
+            测量面和向量夹角
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.BodyBounding(NXOpen.Body,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            获得最大包络尺寸（方形的）
+            </summary>
+            <param name="body"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveParameters(NXOpen.Body)">
+            <summary>
+            移除参数
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveParameters(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name_part"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.RemoveMultiParameters(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="prefix"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateImage">
+            <summary>
+            截图
+            </summary>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateCylinderWithSphere(NXOpen.Point3d,NXOpen.Point3d,NXOpen.Vector3d,System.Double,System.Double,System.String,System.Int32)">
+            <summary>
+            首尾带一个半球的圆柱体
+            </summary>
+            <param name="start_point"></param>
+            <param name="end_point"></param>
+            <param name="direction"></param>
+            <param name="diameter"></param>
+            <param name="height"></param>
+            <param name="name"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateCylinder(NXOpen.Point3d,NXOpen.Vector3d,System.Double,System.Double,System.Int32,NXOpen.Body,System.String)">
+            <summary>
+            CreateCylinder
+            </summary>
+            <param name="start_point"></param>
+            <param name="direction"></param>
+            <param name="diameter"></param>
+            <param name="height"></param>
+            <param name="type">//0-Create 1-Sub 2-Unite</param>
+            <param name="target"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateTube(System.Int32,System.Collections.Generic.List{NXOpen.Curve},System.Double,System.Double)">
+            <summary>
+            管道 灰黑色
+            </summary>
+            <param name="index">命名:TUBE-(index)</param>
+            <param name="curves"></param>
+            <param name="outer_D"></param>
+            <param name="inner_D"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.Sheet2Section(System.String)">
+            <summary>
+            得到片体的边
+            </summary>
+            <param name="part_name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateGuideSwept(System.Int32,System.String,System.Collections.Generic.List{NXOpen.Curve},System.Int32,System.String)">
+            <summary>
+            沿着引导线扫描
+            </summary>
+            <param name="index"></param>
+            <param name="sheet_name"></param>
+            <param name="curves"></param>
+            <param name="option">操作0-无 1-求差 2-求和 3-求交（目前只有0,1）</param>
+            <param name="target_part_name"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateGuideSwept(System.Int32,System.String,System.Collections.Generic.List{NXOpen.Curve},System.String,System.Int32)">
+            <summary>
+            沿引导线扫描生成实体
+            </summary>
+            <param name="index"></param>
+            <param name="sheet_name"></param>
+            <param name="curves"></param>
+            <param name="prefix">前缀</param>
+            <param name="color">颜色</param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CreateText(NXOpen.Point3d,System.Int32,NXOpen.Vector3d,System.String)">
+            <summary>
+            平面创建文字 TODO 考虑坐标系
+            </summary>
+            <param name="p"></param>
+            <param name="plane_dir_z"></param>
+            <param name="vec_txt"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:ExpertLib.NX.BHRT.NXFunction.CraveOnManifold(System.Collections.Generic.List{NXOpen.Features.Text})">
+            <summary>
+            文字刻字到分流板
+            </summary>
+            <param name="texts"></param>
+        </member>
+        <member name="T:ExpertLib.NX.BHRT.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:ExpertLib.NX.BHRT.Properties.Resources.Customer">
+            <summary>
+              查找类似 bhrt 的本地化字符串。
+            </summary>
+        </member>
+    </members>
+</doc>
